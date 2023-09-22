@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Izgubljen u vremenu"
+date: 2023-05-18
+author: Zoran Topic
 tags: ["personal", "short"]
 ---
 

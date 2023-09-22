@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Who am i? For real"
+date: 2023-09-03
+author: Zoran Topic
 tags: ["life", "career"]
 ---
 
