@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: "career""
-tag: "career"
+title: "Tag: life"
+tag: life
 robots: noindex
 ---

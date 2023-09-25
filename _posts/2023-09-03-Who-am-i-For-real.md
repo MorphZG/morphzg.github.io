@@ -3,7 +3,8 @@ layout: post
 title: "Who am i? For real"
 date: 2023-09-03
 author: Zoran Topic
-tags: ["life", "career"]
+tags: life career
+categories: life career
 ---
 
 ![who_am_i_image](/assets/who_am_i.png)

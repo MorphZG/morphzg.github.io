@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: "life""
-tag: "life"
+title: "Tag: short"
+tag: short
 robots: noindex
 ---
