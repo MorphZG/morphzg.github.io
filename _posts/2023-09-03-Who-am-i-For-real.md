@@ -7,7 +7,7 @@ tags: life career
 categories: life career
 ---
 
-![who_am_i_image](/assets/who_am_i.png)
+![who_am_i_image](/assets/images/who_am_i.png)
 
 Young, naive and overconfident. Now, 36 years of age, frustrated but highly motivated. I thought success will come by default but was wrong. I always felt confident with skills and value i offer to my employee. bartender since 2005 till now. and i was sure i am a good one. but after my 30 birthday i started to question. somehow i realized i have other skills and interests that none of my colleagues have. In more than a decade of my bartending None of my work buddies. few more years have passed and i am now sure i am different. i just don’t fit into the stereotype.
 
