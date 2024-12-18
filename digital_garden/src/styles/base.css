@@ -1,0 +1,8 @@
+/*
+Documentation link to astro tailwind integration
+https://docs.astro.build/en/guides/integrations-guide/tailwind/
+*/
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
