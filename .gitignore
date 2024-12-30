@@ -1,17 +1,21 @@
+# append .ignore to any file or directory to ignore it
+*.ignore
+
 # build output
 dist/
+
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+.obsidian* 
 
 # logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
 
 # environment variables
 .env
@@ -20,5 +24,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
+# workspace settings
 .idea/
+.vscode/
