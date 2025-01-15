@@ -1,0 +1,35 @@
+---
+// https://docs.astro.build/en/guides/markdown-content/
+
+import { getCollection, render } from "astro:content";
+
+const notes = await getCollection("notes")
+---
+
+<main>
+    <div class="main-container">
+        <h3>Content grid component</h3>
+        <p>This component should list "notes" collection</p>
+    </div>
+    <div class="notes-list">
+        <ul>
+            {
+                notes.map((note) => (
+                    <li>
+                        <a href={`/notes/${note.id}`}> {note.data.title} </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+    </div>
+</main>
+
+<style>
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+</style>

@@ -1,6 +1,3 @@
-# append .ignore to any file or directory to ignore it
-*.ignore
-
 # build output
 dist/
 
@@ -23,7 +20,5 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# workspace settings
+# jetbrains setting folder
 .idea/
-.vscode/
-.obsidian* 

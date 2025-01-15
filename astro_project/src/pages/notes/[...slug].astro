@@ -1,0 +1,36 @@
+---
+// https://docs.astro.build/en/guides/routing/
+// https://docs.astro.build/en/guides/markdown-content/
+
+import { getCollection, render } from "astro:content";
+import NoteLayout from "../../layouts/NoteLayout.astro";
+
+export async function getStaticPaths() {
+    const notes = await getCollection("notes");
+    return notes.map((note: { id: any }) => ({
+        params: { slug: note.id },
+        props: { note },
+    }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>My Digital Garden</title>
+    </head>
+    <body>
+        <a href="https://docs.astro.build/en/guides/markdown-content/">link: markdown content</a>
+        <hr />
+        <NoteLayout frontmatter={note.data}>
+                <Content />
+        </NoteLayout>
+    </body>
+</html>

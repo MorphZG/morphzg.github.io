@@ -1,0 +1,39 @@
+---
+const { frontmatter } = Astro.props;
+
+let formattedDate;
+frontmatter.date
+    ? (formattedDate = frontmatter.date.toLocaleDateString(undefined, {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+      }))
+    : (formattedDate = undefined);
+
+const timeQuotes = [
+    "Each moment is an irreplaceable opportunity.",
+    "The present is the only time we truly have.",
+    "Every second is a valuable, unrepeatable treasure.",
+    "The present holds infinite possibilities.",
+    "Each moment is a unique, fleeting opportunity.",
+    "Now is all we truly have",
+];
+const randomIndex = Math.floor(Math.random() * timeQuotes.length);
+const randomTimeQuote = timeQuotes[randomIndex];
+console.log(randomTimeQuote);
+---
+
+<p>---- start of layout ----</p>
+<h1>Note Layout Title</h1>
+<slot />
+<span class="date-created">
+    {formattedDate ? <p>Date: {formattedDate}</p> : <p>{randomTimeQuote}</p>}
+</span>
+<p>---- End of layout ----</p>
+
+<style>
+    .date-created {
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+</style>

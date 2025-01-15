@@ -1,0 +1,7 @@
+# trash files
+.trash
+
+# workspace files in all subdirectories relative to .gitignore file
+**/workspace*
+**/workspace-mobile*
+.obsidian*
