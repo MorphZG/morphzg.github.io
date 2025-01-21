@@ -1,0 +1,26 @@
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: auto;
+  min-height: 100vh;
+}
+
+.search-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 32ch;
+  border: 2px solid hsl(50, 10%, 50%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.search-form label {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+input {
+  font: inherit;
+}
