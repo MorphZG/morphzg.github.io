@@ -14,8 +14,6 @@ status: useful
 
 # Welcome my friend
 
-![[_assets/let_me_tell_a_story.jpeg]]
-
 Was looking for a way to turn my markdown notes into a static website, collection of knowledge and memories available to anyone. So here it is. Where to go from here you may ask?
 
 
