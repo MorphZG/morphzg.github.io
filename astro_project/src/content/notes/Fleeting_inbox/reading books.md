@@ -1,13 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - book
   - reading
 title: Reading levels
-type: workflow
-URL: 
-status: useful
 ---
 
 # Reading levels

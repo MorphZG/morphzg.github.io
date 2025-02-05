@@ -1,13 +1,9 @@
 ---
-date: 
-source: 
 tags:
   - webdev
   - coding
   - project
 title: Personal web
-type: project
-URL: 
 ---
 
 # Personal web
@@ -25,7 +21,7 @@ URL:
    **Example Tech Stack**: React.js, MongoDB, Express.js (for API), Mongoose, TailwindCSS
 
 ### Projects
-   
+
    - **Functionality**: Display all your web development projects. Each project should have its own page with details like tech stack, description, and a link to GitHub or live demo.
    - **Implementation**:
 	 - Use cards or grid layout in React to list your projects. Each project card can link to a detailed page.
@@ -35,7 +31,7 @@ URL:
    **Example Tech Stack**: React.js, MongoDB (or JSON for simpler approach), TailwindCSS
 
 ### Digital garden
-   
+
    - **Functionality**: The digital garden will function like a personal knowledge base where you can link notes together (think of it like a mini-wiki). You’ll want a system to create, edit, and interlink notes. Some of important features are backlinks, wikilinks, popover previews, callouts, syntax highlighting, table of contents, tag listings...
    - **Implementation**:
 	 - **Backend**: MongoDB can store your notes. Each note can have fields for content, tags, and links to other notes.
@@ -52,7 +48,7 @@ URL:
 	 - **Backend**: Create a small API with Express to handle submissions and store them in MongoDB.
 	 - You can integrate an email sending service like SendGrid or Nodemailer to handle sending emails.
 
-   **Example Tech Stack**: React.js, MongoDB, Express.js (for API), Nodemailer/SendGrid, TailwindCSS 
+   **Example Tech Stack**: React.js, MongoDB, Express.js (for API), Nodemailer/SendGrid, TailwindCSS
 
 ### General Features
 

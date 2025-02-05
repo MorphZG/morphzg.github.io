@@ -1,13 +1,9 @@
 ---
-date: 
-source: 
 tags:
   - javascript
   - coding
   - webdev
 title: Asynchronous Javascript
-type: knowledge
-URL:
 ---
 
 # Asynchronous Javascript

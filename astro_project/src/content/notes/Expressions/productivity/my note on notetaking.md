@@ -1,13 +1,9 @@
 ---
-date: 
-source: 
 tags:
   - notes
   - productivity
   - ideas
 title: Note Taking as a Learning Tool
-type: blog_post
-URL: https://dev.to/morphzg/note-taking-as-a-learning-tool-how-to-retain-knowledge-and-spark-new-ideas-19i0
 ---
 
 ![[_assets/note-taking.jpg]]

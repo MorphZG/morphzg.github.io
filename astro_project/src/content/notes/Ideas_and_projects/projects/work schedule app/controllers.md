@@ -1,10 +1,6 @@
 ---
-date: 
-source: 
-tags: 
+tags: []
 title: Controllers
-type: project
-URL:
 ---
 
 # Controllers

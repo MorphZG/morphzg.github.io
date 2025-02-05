@@ -1,13 +1,9 @@
 ---
-date: 
-source: 
 tags:
   - project
   - programming
   - webdev
 title: Personal web
-type: portfolio_project
-URL: 
 ---
 
 # Personal web

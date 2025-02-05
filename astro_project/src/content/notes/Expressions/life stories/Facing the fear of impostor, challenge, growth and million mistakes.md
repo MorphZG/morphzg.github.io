@@ -1,13 +1,9 @@
 ---
-date: 2024-11-17
-source: 
 tags:
   - webdev
   - writing
   - story
 title: "Facing Impostor Syndrome: Challenges, Growth, and a Million Mistakes"
-type: blog_post
-URL: https://dev.to/morphzg/facing-the-fear-of-impostor-challenge-growth-and-million-mistakes-fi1
 ---
 
 ![[_assets/impostor_syndrome.webp]]
@@ -78,7 +74,7 @@ I used AI to fill knowledge gaps and get quick explanations. I treated AI as a c
 
 ## The Reality Check
 
-Impostor syndrome often hits you when you start making progress, suddenly the whole new playing field is before you, Big boys start coming around you and suddenly you are smaller than you actually are. You are tiny... Can you feel it? That's it. You have two possible routes to go. Either play with big boys and grow stronger or quit and go home. Choice is yours. 
+Impostor syndrome often hits you when you start making progress, suddenly the whole new playing field is before you, Big boys start coming around you and suddenly you are smaller than you actually are. You are tiny... Can you feel it? That's it. You have two possible routes to go. Either play with big boys and grow stronger or quit and go home. Choice is yours.
 - Everyone Struggles: Even seasoned developers once stared blankly at project structures like these. Understand that impostor syndrome is common, especially in tech, where knowledge evolves rapidly.
 - Mistakes Are Part of the Process: Every bug, error or even lack of solution will eventually lead to new knowledge.
 - Progress Takes Time: Mastering a web development isn’t an overnight achievement. It’s a marathon, not a sprint.

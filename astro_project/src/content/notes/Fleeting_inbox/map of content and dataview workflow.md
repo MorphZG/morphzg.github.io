@@ -1,15 +1,9 @@
 ---
-author: https://www.reddit.com/user/emptyharddrive/
-date: 
-source: web
 tags:
   - moc
   - dataview
   - productivity
 title: How to Use Maps of Content (MOCs) and Dataview to Manage Your Vault in Obsidian
-type: idea
-URL: https://github.com/seqis/ObsidianMOC/blob/main/README.md
-status: detailed
 ---
 
 # How to Use Maps of Content (MOCs) and Dataview to Manage Your Vault in Obsidian

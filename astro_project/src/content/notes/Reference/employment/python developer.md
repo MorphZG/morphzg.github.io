@@ -1,13 +1,9 @@
 ---
-date: 
-source: 
 tags:
   - book
   - employment
   - python
 title: Python crash course by Eric Matthes
-type: "reference"
-URL: 
 ---
 
 # Python crash course by Eric Matthes

@@ -1,19 +1,15 @@
 ---
-date: 2024-11-06
-source: web
-status: useful
 tags:
   - devops
   - coding
   - software
 title: Git and GitHub Reference
-type: reference
-URL:
 ---
 
 # Git and GitHub Reference
 
 ## Table of Contents
+
 - [[#Git Basics]]
 - [[#Configuring Git]]
 - [[#Working with Repositories]]
@@ -29,9 +25,11 @@ URL:
 ---
 
 ## Git Basics
+
 Git is a distributed version control system that tracks changes in your code.
 
 ### Key Concepts
+
 - **Repository (Repo):** A project managed by Git.
 - **Commit:** A snapshot of changes.
 - **Branch:** A separate line of development.

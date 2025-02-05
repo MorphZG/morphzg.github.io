@@ -1,10 +1,6 @@
 ---
-date: 
-source: 
-tags: 
+tags: []
 title: Model, View, Controller
-type: project
-URL:
 ---
 
 # Model, View, Controller

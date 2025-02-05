@@ -1,12 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - personal
   - career
 title: ""
-type: blog_post
-URL: none
 ---
 
 ![who_am_i_image](/assets/images/who_am_i.png)

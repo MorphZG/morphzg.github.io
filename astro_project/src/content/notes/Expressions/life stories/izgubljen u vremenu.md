@@ -1,12 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - personal
   - short
 title: ""
-type: blog_post
-URL: none
 ---
 
 ![post-image](/assets/images/izgubljen-u-vremenu.jpeg)

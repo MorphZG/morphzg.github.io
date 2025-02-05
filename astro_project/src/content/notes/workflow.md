@@ -4,9 +4,6 @@ tags:
   - obsidian
   - workflow
 title: My Obsidian Workflow
-type: reference
-URL: 
-status: detailed
 ---
 
 # My Obsidian Workflow
@@ -34,7 +31,7 @@ Even the longest journey starts with a single step. I was searching for a way to
 
 - **03_Literature_notes**
 	- Literature doesn't have to be a physical book, it can be a digital article or a blog post. While `01_Reference` directory have very practical notes, literature notes are wider range of ideas and personal thoughts about different concepts. When taking literature notes be mindful of a structure but also take note of important metadata.
-    - Read more about [[03_Literature_notes/_literature_notes_structure|structure of literature notes]]
+	- Read more about [[03_Literature_notes/_literature_notes_structure|structure of literature notes]]
 
 - **04_Expressions**
 	- After collecting enough knowledge and different ideas, when there is enough to encapsulate written words into my own expressions, I will share them online. This is the directory where everything comes together.
@@ -60,7 +57,6 @@ Create the [[_dataview_database/index|Dataview index]] to query the list of avai
 >- **title**: String datatype, title of source
 >- **URL**: String datatype, link to source
 >- **status**: String datatype, draft, useful, detailed, master
-
 
 ## Type property
 

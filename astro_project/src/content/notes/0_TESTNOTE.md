@@ -1,21 +1,15 @@
 ---
 pubDate: 2024-01-01
-date: 2024-01-01
-source: 
 tags:
   - personal
   - writing
   - index
-title: 0_TEST NOTE
-type: index
-URL: 
-status: useful
+title: Welcome my friend
 ---
 
 # Welcome my friend
 
 Was looking for a way to turn my markdown notes into a static website, collection of knowledge and memories available to anyone. So here it is. Where to go from here you may ask?
-
 
 ```javascript
 passport.use(new LocalStrategy(async (username, password, done) => {
@@ -36,7 +30,7 @@ passport.serializeUser((user, done) => {
 });
 ```
 
-You may start with a [[_workflow|workflow rules]], i never enjoy restricting my creative output so these rules will transform and evolve with time. Set workflow should prevent myself from going all over the place. Keep i the vault neat and organised. There is also an additional benefit, with rules in place i can keep my focus on content instead of structure. 
+You may start with a [[_workflow|workflow rules]], i never enjoy restricting my creative output so these rules will transform and evolve with time. Set workflow should prevent myself from going all over the place. Keep i the vault neat and organised. There is also an additional benefit, with rules in place i can keep my focus on content instead of structure.
 
 I am in a process of building my own web from the ground up but for now i use [Digital Garden plugin](https://dg-docs.ole.dev/) I guarantee you there is no easier way to publish your notes. If you decide to try it out be sure to create separate github token with restricted access to rest of your github account. Would be good to also make a copy of your vault since publishing like this need you to add some extra properties to your notes. Will probably write a short guide soon.
 
@@ -53,4 +47,3 @@ I often think about the power of storytelling. How, with the right words, you ca
 There’s something thrilling about it, like I’m both the creator and the observer. I write to understand, to make sense of the chaos that sometimes spins in my head. And if, by chance, my words resonate with someone else, if they read something I’ve written and feel even a fraction of what I felt while writing it than i did a good job.
 
 But that’s the thing about sharing your thoughts no matter how personal they feel, you never know who might connect with them.
-

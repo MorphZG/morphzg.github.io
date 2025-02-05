@@ -1,13 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - employment
   - webdev
 title: Job hunting for junior devs
-type: advice
-URL: 
-status: draft
 ---
 
 # Job hunting for junior devs

@@ -1,13 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - webdev
   - coding
 title: Single page application
-type: knowledge
-URL: 
-status: useful
 ---
 
 # Single page application

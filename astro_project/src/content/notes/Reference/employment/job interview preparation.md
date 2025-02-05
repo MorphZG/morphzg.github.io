@@ -1,12 +1,7 @@
 ---
-date: 
-source: 
 tags:
   - employment
 title: Job interview
-type: reference
-URL: 
-status: draft
 ---
 
 # Job interview

@@ -1,12 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - personal
   - writing
 title: Let me tell you a story
-type: blog_post
-URL: 
 ---
 
 ![[_assets/let_me_tell_a_story.jpeg]]

@@ -13,7 +13,7 @@ const notes = defineCollection({
 		status: z.enum(["draft", "useful", "detailed", "master"]).optional().nullable(),
 		tags: z.array(z.string()).nullable(),
 		title: z.string(),
-		type: z.string().nullable(),
+		type: z.string().optional().nullable(),
 		URL: z.string().optional().nullable(),
 
 	}),

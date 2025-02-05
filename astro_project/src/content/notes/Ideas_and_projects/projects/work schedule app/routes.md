@@ -1,10 +1,6 @@
 ---
-date: 
-source: 
-tags: 
+tags: []
 title: Routes setup
-type: project
-URL:
 ---
 
 # Routes setup

@@ -1,13 +1,8 @@
 ---
-date: 
-source: 
 tags:
   - blog
   - story
 title: Singularity
-type: idea
-URL: 
-status: draft
 ---
 
 # Singularity

@@ -1,12 +1,9 @@
 ---
-date: 2024-10-30
 tags:
   - webdev
   - coding
   - project
 title: Work schedule app
-type: project
-URL: https://github.com/MorphZG/work_schedule_app.git
 ---
 
 # Work schedule app
@@ -30,7 +27,7 @@ URL: https://github.com/MorphZG/work_schedule_app.git
 
 ### Backend (Node.js + Express)
 
-#### API Endpoints:
+#### API Endpoints
 
   - GET `/schedule/:period`: Fetches the schedule for a specific period (weekly/monthly).
   - POST `/schedule`: Generates a new schedule, taking into account employee preferences and balanced weekend shifts.
@@ -38,7 +35,7 @@ URL: https://github.com/MorphZG/work_schedule_app.git
   - GET `/statistics/:employeeId`: Fetches the specific statistics and weekday work frequency for an employee.
   - POST `/randomize-schedule`: An endpoint to create a randomised schedule within the selected period.
 
-#### Logic for Balanced Scheduling:
+#### Logic for Balanced Scheduling
 
 Use algorithms to ensure fair distribution of weekend shifts. Consider constraints like free days and shift preferences.
 

@@ -1,15 +1,9 @@
 ---
-author: https://www.reddit.com/user/emptyharddrive/
-date: 
-source: web
 tags:
   - moc
   - dataview
   - productivity
 title: Maps of Content
-type: idea
-URL: https://github.com/seqis/ObsidianMOC/blob/main/README.md
-status: detailed
 ---
 
 # Maps of Content

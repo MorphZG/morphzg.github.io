@@ -1,10 +1,6 @@
 ---
-date: 
-source: 
-tags: 
+tags: []
 title: Directory structure
-type: project
-URL:
 ---
 
 # Directory structure

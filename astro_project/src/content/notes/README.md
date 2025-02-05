@@ -1,13 +1,8 @@
 ---
-date:
-source:
-status: draft
 tags:
   - index
   - obsidian
 title: Obsidian notes
-type: index
-URL: https://github.com/MorphZG/obsidian_vault
 ---
 
 # Obsidian notes
