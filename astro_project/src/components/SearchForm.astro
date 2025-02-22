@@ -1,5 +1,42 @@
 ---
-import { getEntry, getCollection, render } from "astro:content";
-
-const searchResult = await getEntry()
+// Created with few guidelines from:
+// https://www.youtube.com/watch?v=XnV_2MWqAhQ
 ---
+
+<aside>
+    <form class="search-form">
+        <div>
+            <label for="search-input">Search the notes</label>
+        </div>
+        <input
+            type="search"
+            name="search-input"
+            id="search-input"
+            required
+            minlength="3"
+            maxlength="20"
+            placeholder="Enter a search term"
+        />
+    </form>
+</aside>
+
+<script>
+    /*
+Astro builds zero client-side javascript
+When needed put javascript code under the <script> tag instead of frontmatter
+    */
+    import DOMPurify from "dompurify";
+
+    const form = document.querySelector("form");
+
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const searchTerm = formData.get("search-input");
+        if (!searchTerm || typeof searchTerm !== "string") return;
+        const purifiedTerm = DOMPurify.sanitize(searchTerm);
+        const url = new URL("/search", window.location.origin);
+        url.searchParams.set("q", purifiedTerm);
+        window.location.assign(url.toString());
+    });
+</script>

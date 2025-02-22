@@ -1,6 +1,8 @@
 ---
 import IndexLayout from "../layouts/IndexLayout.astro";
 import ContentGrid from "../components/ContentGrid.astro";
+import SearchForm from "../components/SearchForm.astro";
+import "../styles/global.css"
 ---
 
 <!doctype html>
@@ -14,6 +16,7 @@ import ContentGrid from "../components/ContentGrid.astro";
     </head>
     <body>
         <IndexLayout>
+            <SearchForm />
             <ContentGrid />
         </IndexLayout>
     </body>

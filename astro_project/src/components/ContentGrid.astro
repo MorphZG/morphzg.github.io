@@ -3,7 +3,7 @@
 
 import { getCollection, render } from "astro:content";
 
-const notes = await getCollection("notes")
+const notes = await getCollection("notes");
 ---
 
 <main>
@@ -15,13 +15,14 @@ const notes = await getCollection("notes")
         <ul>
             {
                 notes.map((note) => (
-                    <li>
-                        <a href={`/notes/${note.id}`}> {note.data.title} </a>
-                    </li>
+                        <li class="post-card">
+                            <a href={`/notes/${note.id}`}>
+                                {note.data.title} / note.id: {note.id}
+                            </a>
+                        </li>
                 ))
             }
         </ul>
-
     </div>
 </main>
 
@@ -31,5 +32,19 @@ const notes = await getCollection("notes")
         flex-direction: column;
         align-items: center;
         margin: auto;
+    }
+    .post-card {
+        border: 1px solid black;
+        border-radius: 0.3rem;
+        background-color: hsl(180, 15%, 49%);
+        width: 200px;
+        height: 100px;
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        padding: 1rem;
+        margin: 0.2rem;
     }
 </style>

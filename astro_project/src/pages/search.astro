@@ -1,0 +1,86 @@
+---
+import IndexLayout from "../layouts/IndexLayout.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>My Digital Garden</title>
+    </head>
+    <body>
+        <IndexLayout>
+            <main>
+                <h1>Search results page</h1>
+                <aside class="search-form">
+                    <div>
+                        <label for="search-input">Search the notes</label>
+                    </div>
+                    <input
+                        type="search"
+                        name="search-input"
+                        id="search-input"
+                        required
+                        minlength="3"
+                        maxlength="20"
+                        placeholder="Enter a search term"
+                    />
+                </aside>
+                <p id="searchReadout"></p>
+                <section aria-label="Search Results"></section>
+            </main>
+        </IndexLayout>
+        <script>
+            /*
+Astro builds zero client-side javascript
+When needed put javascript code under the <script> tag instead of frontmatter
+    */
+            import DOMPurify from "dompurify";
+
+            // selectors
+            const searchInput = document.querySelector(
+                "#search-input"
+            ) as HTMLInputElement;
+            const searchReadout = document.querySelector(
+                "#searchReadout"
+            ) as HTMLParagraphElement;
+
+            // functions
+            function updateDocumentTitle(searchInput: string) {
+                // set the page title depending on the search input
+                document.title = searchInput
+                    ? "Search results"
+                    : "Search for knowledge";
+            }
+            function updateSearchReadout(searchInput: string) {
+                // set the textContent of #searchReadout element
+                searchReadout.textContent = searchInput
+                    ? `Search results for: ${searchInput}`
+                    : "Search for knowledge";
+            }
+
+            // event listeners
+            window.addEventListener("DOMContentLoaded", () => {
+                const urlParams = new URLSearchParams(
+                    window.location.search
+                ).get("q");
+                const sanitizedParams = urlParams
+                    ? DOMPurify.sanitize(urlParams)
+                    : "";
+                searchInput.value = sanitizedParams;
+                searchInput.focus();
+                updateDocumentTitle(sanitizedParams);
+                updateSearchReadout(sanitizedParams);
+            });
+
+            searchInput.addEventListener(() => {
+                // https://www.youtube.com/watch?v=XnV_2MWqAhQ
+                // 26:15
+            });
+        </script>
+    </body>
+</html>
