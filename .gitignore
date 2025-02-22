@@ -27,3 +27,4 @@ pnpm-debug.log*
 .idea/
 .vscode/
 .obsidian* 
+./src/content/notes/_**
