@@ -10,6 +10,7 @@ import react from '@astrojs/react';
 export default defineConfig({
     server: {port: 3000},
     site: 'https://morphzg.github.io',
+    base: '/morphzg.github.io',
     integrations: [mdx(), sitemap(), react()],
     fonts: [
         {
