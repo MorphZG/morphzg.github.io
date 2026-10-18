@@ -248,17 +248,15 @@ If a check fails because of an existing issue, include that information in the p
 
 ## Deployment
 
-The website is intended to be deployable as a static site on a compatible hosting platform.
+This repository deploys to GitHub Pages using the workflow in `.github/workflows/deploy.yml`.
 
-A typical deployment workflow is:
+To enable deployment:
 
-1. Install dependencies.
-2. Run the production build.
-3. Publish the generated output directory using the configured hosting provider.
+1. In the repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+2. Push a commit to `main`, or run **Deploy Astro site to GitHub Pages** from the **Actions** tab.
+3. Wait for the build and deploy jobs to complete successfully.
 
-The production output directory for a standard Astro project is `dist/`.
-
-Actual deployment settings, environment requirements, and build configuration depend on the hosting provider and repository setup.
+The workflow builds the Astro site with `npm run build` and publishes `dist/`. For this user-site repository, the URL is `https://morphzg.github.io` (without `www`).
 
 ## Roadmap
 
