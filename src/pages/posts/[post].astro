@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseHead from "../../components/BaseHead.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { post: post.id.replace(/\.(md|mdx)$/i, "") },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, thumbnail, heroImage } = post.data;
+---
+
+<html lang="en">
+    <head>
+        <BaseHead
+            title={title}
+            description={description}
+        />
+    </head>
+    <body>
+        <main class="page-shell">
+            <nav class="topbar">
+                <a href="/" class="brand">Back home</a>
+            </nav>
+
+           {/* "short-circuit" check, if thumbnail is true, the JSX block will render.
+            prevents rendering missing data */}
+            {thumbnail && (
+                <Image 
+                    src={thumbnail} 
+                    alt={title || "Hero image"} 
+                />
+            )}
+
+            <article>
+                <p class="eyebrow">Blog post</p>
+                <h1>{title}</h1>
+                <p class="lede">{description}</p>
+                <Content />
+            </article>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<main class="publish-container">
+    <div class="section-heading">
+        <p class="eyebrow">New Entry</p>
+        <h2>Publish a Post</h2>
+    </div>
+
+    <form class="publish-form" method="POST" action="/api/publish">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" name="title" required />
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="pubDate">Publication date</label>
+            <input id="pubDate" name="pubDate" type="date" required />
+
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea id="body" name="body" rows="12" required></textarea>
+            </div>
+
+            <label for="tags">Tags</label>
+            <input
+              id="tags"
+              name="tags"
+              placeholder="personal, writings"
+            />
+
+            <button class="submit-btn" type="submit">Publish Post</button>
+        </div>
+    </form>
+    <pre id="form-preview" aria-live="polite" hidden></pre>
+</main>
+
+<script>
+    const form = document.querySelector<HTMLFormElement>(".publish-form");
+    const preview = document.querySelector<HTMLElement>("#form-preview");
+
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!preview) return;
+
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+
+        preview.textContent = JSON.stringify(payload, null, 2);
+        preview.hidden = false;
+        console.log("Form submission preview:", payload);
+    });
+</script>
+
+<style>
+    .publish-container {
+        max-width: 720px;
+        margin: 40px auto 0;
+    }
+
+    .publish-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background: var(--panel);
+        padding: 32px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+    }
+
+    #form-preview {
+        overflow-x: auto;
+        margin-top: 24px;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--panel);
+        color: var(--text);
+        white-space: pre-wrap;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-strong);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-family: var(--mono-space);
+        background: var(--bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+
+    .submit-btn {
+        font-family: var(--mono-space);
+        background: var(--accent);
+        color: var(--bg);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        align-self: flex-start;
+        transition: background 0.2s ease;
+    }
+
+    .submit-btn:hover {
+        background: var(--accent-strong);
+    }
+</style>

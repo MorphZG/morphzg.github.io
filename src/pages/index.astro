@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+
+const posts = await getCollection("blog");
+posts.sort((a, b) => {
+    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+});
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <main id="top" class="page-shell">
+            <Header />
+
+            <section class="hero">
+                <p class="eyebrow">Welcome</p>
+                <h1>{SITE_TITLE}</h1>
+                <p class="lede">{SITE_DESCRIPTION}</p>
+            </section>
+
+            <section id="posts" class="posts">
+                <div class="section-heading">
+                    <h2>Latest posts</h2>
+                </div>
+
+                <div class="post-grid">
+                    {
+                        posts.map((post) => {
+                            const slug = post.id.replace(/\.(md|mdx)$/i, "");
+                            return (
+                                <article class="post-card">
+                                    <p class="post-date">
+                                        {post.data.pubDate.toLocaleDateString(
+                                            "en-US",
+                                            {
+                                                month: "short",
+                                                day: "numeric",
+                                                year: "numeric",
+                                            },
+                                        )}
+                                    </p>
+                                    <h3>
+                                        <a href={`/posts/${slug}`}>
+                                            {post.data.title}
+                                        </a>
+                                    </h3>
+                                    <p>{post.data.description}</p>
+                                </article>
+                            );
+                        })
+                    }
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

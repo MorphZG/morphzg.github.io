@@ -1,0 +1,98 @@
+.ayu {
+    --bg: #10141c;
+    --panel: #181d27;
+    --panel-soft: #252d3a;
+    --text: #bfbdb6;
+    --muted: #858b98;
+    --accent: #e6b450;
+    --accent-strong: #f0c674;
+    --border: #343b49;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.45);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+
+.github-dimm-dark {
+    --bg: #13161a;
+    --panel: #1d2025;
+    --panel-soft: #373e47;
+    --text: #adbac7;
+    --muted: #768390;
+    --accent: #2ea043;
+    --accent-strong: #3fb950;
+    --border: #444c56;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.45);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.gruvbox-dark {
+    --bg: #282828;
+    --panel: #32302f;
+    --panel-soft: #3c3836;
+    --text: #ebdbb2;
+    --muted: #a89984;
+    --accent: #d79921;
+    --accent-strong: #fabd2f;
+    --border: #504945;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.tokyo-night {
+    --bg: #1a1b26;
+    --panel: #24283b;
+    --panel-soft: #292e42;
+    --text: #c0caf5;
+    --muted: #a9b1d6;
+    --accent: #7aa2f7;
+    --accent-strong: #bb9af7;
+    --border: #414868;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.everforest-dark {
+    --bg: #2d353b;
+    --panel: #343f44;
+    --panel-soft: #475258;
+    --text: #d3c6aa;
+    --muted: #9da9a0;
+    --accent: #a7c080;
+    --accent-strong: #83c092;
+    --border: #4f585e;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.catppuccin-mocha {
+    --bg: #1e1e2e;
+    --panel: #181825;
+    --panel-soft: #313244;
+    --text: #cdd6f4;
+    --muted: #a6adc8;
+    --accent: #89b4fa;
+    --accent-strong: #cba6f7;
+    --border: #45475a;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.nord {
+    --bg: #2e3440;
+    --panel: #3b4252;
+    --panel-soft: #434c5e;
+    --text: #eceff4;
+    --muted: #d8dee9;
+    --accent: #88c0d0;
+    --accent-strong: #8fbcbb;
+    --border: #4c566a;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}

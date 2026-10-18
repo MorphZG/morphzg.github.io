@@ -1,0 +1,23 @@
+---
+import { Content as AboutMe, frontmatter } from '../content/about-me.md';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={frontmatter.title} description={frontmatter.description} />
+    </head>
+    <body>
+        <main id="top" class="page-shell">
+            <Header />
+
+            <article class="hero">
+                <p class="eyebrow">About</p>
+                <h1>{frontmatter.title}</h1>
+                <p class="lede">{frontmatter.description}</p>
+                <AboutMe />
+            </article>
+        </main>
+    </body>
+</html>
