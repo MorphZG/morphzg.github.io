@@ -2,8 +2,8 @@
 title: 'Let me tell you a story'
 description: 'Short observation of my own self'
 pubDate: 'February 28 2026'
-heroImage: '/src/assets/thumbnails/let_me_tell_a_story.jpeg'
-thumbnail: '/src/assets/thumbnails/let_me_tell_a_story.jpeg'
+heroImage: '../../assets/thumbnails/let_me_tell_a_story.jpeg'
+thumbnail: '../../assets/thumbnails/let_me_tell_a_story.jpeg'
 tags: ['personal', 'writings']
 ---
 
