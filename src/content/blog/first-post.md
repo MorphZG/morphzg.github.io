@@ -2,8 +2,8 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 1964'
-heroImage: '../../assets/heroimage-placeholder-001.jpg'
-thumbnail: '/src/assets/thumbnails/thumbimg001.jpeg'
+heroImage: '../../assets/blog-placeholder-1.jpg'
+thumbnail: '../../assets/blog-placeholder-1.jpg'
 tags: ['lorem', 'ipsum']
 ---
 
