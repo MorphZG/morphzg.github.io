@@ -1,7 +1,7 @@
 ---
 title: 'Who am i for real'
 description: ''
-pubDate: ''
+pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
 tags: []

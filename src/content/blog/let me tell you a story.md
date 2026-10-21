@@ -1,7 +1,7 @@
 ---
 title: 'Let me tell you a story'
 description: ''
-pubDate: ''
+pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
 tags: []

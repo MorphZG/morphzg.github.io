@@ -1,7 +1,7 @@
 ---
 title: 'Note taking as a learning tool'
 description: 'How to Retain Knowledge and Spark New Ideas'
-pubDate: ''
+pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
 tags: []

@@ -1,7 +1,7 @@
 ---
 title: 'My note on notetaking'
 description: 'Start with a single, boring note. Let it boil and cook for a while. Let it grow into something meaningful.'
-pubDate: ''
+pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
 tags: []
