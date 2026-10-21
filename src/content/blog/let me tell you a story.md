@@ -1,10 +1,11 @@
 ---
 title: 'Let me tell you a story'
-description: 'Short observation of my own self'
-pubDate: 'February 28 2026'
-heroImage: '../../assets/thumbnails/let_me_tell_a_story.jpeg'
-thumbnail: '../../assets/thumbnails/let_me_tell_a_story.jpeg'
-tags: ['personal', 'writings']
+description: ''
+pubDate: ''
+heroImage: ''
+thumbnail: ''
+tags: []
+draft: true
 ---
 
 A simple guy, nothing special about him, not much different from the other regulars you see in public. But.... that's just on surface, inside, every single one of us is very special. Living through unique experiences that shapes who we are. First love, first disappointment, first school fight.... Very early in life we start to diverge in unimaginable ways from each other but still, somehow, we are drawn to other people with similar interests.

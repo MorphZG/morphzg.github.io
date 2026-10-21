@@ -1,10 +1,11 @@
 ---
 title: 'Zoran Topic'
 description: 'Few lines about me, myself and I.'
-pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+pubDate: ''
+heroImage: ''
 thumbnail: ''
 tags: []
+draft: false
 ---
 
 Just a casual, simple person, nothing extraordinary at a first glance. But beneath the surface lies a unique and peculiar one. With his own experiences, desires, passions... Man can only hope there will be more good than bad ones.
