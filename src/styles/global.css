@@ -121,7 +121,7 @@ a {
     padding: 22px;
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius: 5px;
     box-shadow: var(--shadow);
 
     &.wide {
