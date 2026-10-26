@@ -3,7 +3,7 @@ title: 'Worries of selftaugt developer'
 description: ''
 pubDate: '2026-10-21'
 heroImage: ''
-thumbnail: ''
+thumbnail: '/src/assets/thumbnails/impostor_syndrome.webp'
 tags: []
 draft: true
 ---

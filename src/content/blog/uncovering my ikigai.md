@@ -3,7 +3,7 @@ title: 'Uncovering my ikigai'
 description: ''
 pubDate: '2026-10-21'
 heroImage: ''
-thumbnail: ''
+thumbnail: '/src/assets/thumbnails/uncovering-ikigai.webp'
 tags: []
 draft: true
 ---

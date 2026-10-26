@@ -13,15 +13,18 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const { title, description, thumbnail, heroImage } = post.data;
+const { title, description, thumbnail, heroImage, pubDate } = post.data;
+const dateOptions = { year: "numeric", month: "long", day: "numeric" } as const;
+const date = pubDate.toLocaleDateString("en-UK", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+});
 ---
 
 <html lang="en">
     <head>
-        <BaseHead
-            title={title}
-            description={description}
-        />
+        <BaseHead title={title} description={description} />
     </head>
     <body>
         <main class="page-shell">
@@ -29,18 +32,12 @@ const { title, description, thumbnail, heroImage } = post.data;
                 <a href="/" class="brand">Back home</a>
             </nav>
 
-           {/* "short-circuit" check, if thumbnail is true, the JSX block will render.
-            prevents rendering missing data */}
-            {thumbnail && (
-                <Image 
-                    src={thumbnail} 
-                    alt={title || "Hero image"} 
-                />
-            )}
+            {thumbnail && <Image src={thumbnail} alt={title || "Hero image"} />}
 
             <article>
                 <p class="eyebrow">Blog post</p>
                 <h1>{title}</h1>
+                <p>{date}</p>
                 <p class="lede">{description}</p>
                 <Content />
             </article>

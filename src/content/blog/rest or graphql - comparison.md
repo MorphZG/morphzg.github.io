@@ -1,9 +1,9 @@
 ---
 title: 'REST or GraphQL: Comparison'
-description: ''
+description: 'REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. In this post i will compare the two.'
 pubDate: '2026-10-21'
 heroImage: ''
-thumbnail: ''
+thumbnail: '/src/assets/thumbnails/rest-graphql-comparison.webp'
 tags: []
 draft: true
 ---
