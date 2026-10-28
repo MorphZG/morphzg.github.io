@@ -1,6 +1,6 @@
 ---
 title: 'Zoran Topic'
-description: 'Few lines about me, myself and I.'
+description: 'Just a casual, simple person, nothing extraordinary at a first glance. But beneath the surface lies a unique and peculiar one. With his own experiences, desires, passions… Man can only hope there will be more good than bad ones.'
 pubDate: ''
 heroImage: ''
 thumbnail: ''

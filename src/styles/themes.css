@@ -96,3 +96,17 @@
     --mono-space: "Inconsolata", monospace, sans-serif;
     --serif: "Merriweather", serif;
 }
+
+.midnight-editorial {
+    --bg: #0b1118;
+    --panel: #101923;
+    --panel-soft: #182330;
+    --text: #d5deea;
+    --muted: #8b9caf;
+    --accent: #f2b544;
+    --accent-strong: #ffd078;
+    --border: #293747;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
