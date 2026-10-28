@@ -4,7 +4,8 @@ description: ''
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: '/src/assets/thumbnails/impostor_syndrome.webp'
-tags: []
+tags: ['career', 'psychology']
+category: 'career'
 draft: true
 ---
 

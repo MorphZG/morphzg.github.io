@@ -4,7 +4,8 @@ description: ''
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
-tags: []
+tags: ['productivity', 'notetaking']
+category: 'productivity'
 draft: true
 ---
 

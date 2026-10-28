@@ -5,6 +5,7 @@ pubDate: ''
 heroImage: ''
 thumbnail: ''
 tags: []
+category: 'personal'
 draft: false
 ---
 

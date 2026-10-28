@@ -4,7 +4,8 @@ description: 'REST and GraphQL are two widely used approaches to building APIs. 
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: '/src/assets/thumbnails/rest-graphql-comparison.webp'
-tags: []
+tags: ['webdev', 'api', 'backend']
+category: 'backend'
 draft: true
 ---
 
