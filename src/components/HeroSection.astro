@@ -2,12 +2,17 @@
 const {
     eyebrow = "Welcome",
     title = "Writing by Me",
-    description="From a vast fields of cyberspace, somewhere far away from everything. We got a signal!",
+    description = "From a vast fields of cyberspace, somewhere far away from everything. We got a signal!",
 } = Astro.props;
 ---
 
 <section class="hero">
-    <p class="eyebrow">{eyebrow}</p>
-    <h1>{title}</h1>
-    <p class="lede">{description}</p>
+    <div class="hero-group-left">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        <p class="lede">{description}</p>
+    </div>
+    <div class="hero-group-right">
+        <p>Better questions lead to better solutions</p>
+    </div>
 </section>

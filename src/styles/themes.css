@@ -12,9 +12,8 @@
     --serif: "Merriweather", serif;
 }
 
-
-.github-dimm-dark {
-    --bg: #13161a;
+.github-dark {
+    --bg: #0a0b0e;
     --panel: #1d2025;
     --panel-soft: #373e47;
     --text: #adbac7;
@@ -50,6 +49,20 @@
     --accent: #7aa2f7;
     --accent-strong: #bb9af7;
     --border: #414868;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.tokyo-night-frost {
+    --bg: #1e2030;
+    --panel: #25283d;
+    --panel-soft: #2f344a;
+    --text: #c0caf5;
+    --muted: #828bb8;
+    --accent: #65bcff;
+    --accent-strong: #89ddff;
+    --border: #3b4261;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
     --mono-space: "Inconsolata", monospace, sans-serif;
     --serif: "Merriweather", serif;
@@ -107,6 +120,90 @@
     --accent-strong: #ffd078;
     --border: #293747;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.midnight-blue-contrast {
+    --bg: #07090f;
+    --panel: #0d121c;
+    --panel-soft: #161e2e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-strong: #60a5fa;
+    --border: #1e293b;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.6);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.monokai-pro {
+    --bg: #2d2a2e;
+    --panel: #221f22;
+    --panel-soft: #3b383b;
+    --text: #fcfcfa;
+    --muted: #939293;
+    --accent: #ffd866;
+    --accent-strong: #ff6188;
+    --border: #403e41;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.solarized-dark {
+    --bg: #002b36;
+    --panel: #073642;
+    --panel-soft: #0e4955;
+    --text: #839496;
+    --muted: #586e75;
+    --accent: #2aa198;
+    --accent-strong: #b58900;
+    --border: #1f4f5a;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.rose-pine {
+    --bg: #191724;
+    --panel: #1f1d2e;
+    --panel-soft: #26233a;
+    --text: #e0def4;
+    --muted: #908caa;
+    --accent: #ebbcba;
+    --accent-strong: #31748f;
+    --border: #403d52;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.one-dark-pro {
+    --bg: #1e222a;
+    --panel: #21252b;
+    --panel-soft: #2c313a;
+    --text: #abb2bf;
+    --muted: #5c6370;
+    --accent: #61afef;
+    --accent-strong: #98c379;
+    --border: #3e4452;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+    --mono-space: "Inconsolata", monospace, sans-serif;
+    --serif: "Merriweather", serif;
+}
+
+.dracula {
+    --bg: #282a36;
+    --panel: #21222c;
+    --panel-soft: #44475a;
+    --text: #f8f8f2;
+    --muted: #6272a4;
+    --accent: #bd93f9;
+    --accent-strong: #ff79c6;
+    --border: #44475a;
+    --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
     --mono-space: "Inconsolata", monospace, sans-serif;
     --serif: "Merriweather", serif;
 }

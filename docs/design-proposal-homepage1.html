@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZORAN TOPIC — Personal Blog & Portfolio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons for Clean SVG Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0b0f17',       /* Deep slate background */
+                            card: '#111723',     /* Slightly lighter for quote/terminal */
+                            accent: '#10b981',   /* Signature vibrant green */
+                            'accent-hover': '#34d399',
+                            border: '#1e293b',   /* Subtle dark borders */
+                            text: '#94a3b8',     /* Muted body text */
+                            heading: '#f1f5f9'   /* Crisp white headings */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Newsreader', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Fine-tuned Styles */
+        body {
+            background-color: #0b0f17;
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Light theme overrides */
+        html:not(.dark) body {
+            background-color: #f8fafc;
+            color: #475569;
+        }
+        
+        html:not(.dark) .bg-brand-bg {
+            background-color: #f8fafc;
+        }
+
+        html:not(.dark) .bg-brand-card {
+            background-color: #f1f5f9;
+        }
+
+        html:not(.dark) .border-brand-border {
+            border-color: #e2e8f0;
+        }
+
+        html:not(.dark) .text-brand-heading {
+            color: #0f172a;
+        }
+
+        html:not(.dark) .text-brand-text {
+            color: #475569;
+        }
+
+        .tag-pill {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .tag-pill:hover {
+            border-color: #10b981;
+            color: #10b981;
+            transform: translateY(-1px);
+        }
+
+        .post-card {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .post-card:hover .post-title {
+            color: #10b981;
+        }
+
+        .post-card:hover .post-arrow {
+            transform: translateX(4px);
+            color: #10b981;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-brand-accent selection:text-black">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-brand-border py-5">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 flex justify-between items-center">
+            
+            <!-- Logo / Brand -->
+            <a href="#" class="font-mono font-medium tracking-wider text-brand-heading hover:text-brand-accent transition-colors text-sm sm:text-base">
+                ZORAN TOPIC
+            </a>
+
+            <!-- Navigation Links & Theme Toggle -->
+            <div class="flex items-center space-x-6 sm:space-x-8">
+                <nav class="flex items-center space-x-6 text-sm">
+                    <a href="#" class="relative font-medium text-brand-heading py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-accent">
+                        Home
+                    </a>
+                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">Posts</a>
+                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">About</a>
+                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">Admin</a>
+                </nav>
+
+                <!-- Theme Toggle Button -->
+                <div class="flex items-center border border-brand-border rounded-full p-1 bg-brand-card/50">
+                    <button id="theme-light-btn" onclick="setTheme('light')" class="p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors" title="Light Mode">
+                        <i data-feather="sun" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button id="theme-dark-btn" onclick="setTheme('dark')" class="p-1.5 rounded-full bg-brand-border text-brand-accent transition-colors" title="Dark Mode">
+                        <i data-feather="moon" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-6 sm:px-8 py-12 md:py-16 flex-grow w-full">
+
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-brand-border">
+            
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-8 space-y-4">
+                <span class="font-mono text-xs font-semibold tracking-wider text-brand-accent uppercase block">
+                    WELCOME
+                </span>
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-heading leading-[1.15] tracking-tight">
+                    Writing about code, ideas and the world<span class="text-brand-accent">.</span>
+                </h1>
+                <p class="text-brand-text text-base sm:text-lg leading-relaxed max-w-2xl pt-2">
+                    I'm a developer and lifelong learner. This is my personal space for sharing thoughts, notes and experiments about web development, technology, history and whatever else catches my interest.
+                </p>
+            </div>
+
+            <!-- Right Hero Quote Box -->
+            <div class="lg:col-span-4 flex items-center lg:justify-end">
+                <div class="border-l-2 border-brand-border pl-6 py-2 max-w-xs space-y-3">
+                    <p class="font-mono text-sm text-brand-heading leading-relaxed">
+                        Better questions lead to better solutions.
+                    </p>
+                    <div class="w-6 h-[2px] bg-brand-accent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Grid: Latest Posts & Sidebar -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
+
+            <!-- Main Content Area: Latest Posts -->
+            <section class="lg:col-span-8 space-y-8">
+                
+                <!-- Section Header -->
+                <div class="flex justify-between items-baseline pb-2">
+                    <h2 class="font-serif text-2xl sm:text-3xl text-brand-heading">
+                        Latest posts
+                    </h2>
+                    <a href="#" class="font-mono text-xs text-brand-accent hover:underline flex items-center gap-1 group">
+                        View all posts <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                </div>
+
+                <!-- Post List -->
+                <div class="divide-y divide-brand-border">
+
+                    <!-- Post Item 1 -->
+                    <article class="post-card py-6 first:pt-0 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>OCT 24, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">WEB DEVELOPMENT</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 8 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                Understanding the modern web rendering landscape
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            A practical look at the differences between SSR, CSR and hybrid rendering, and when to use each approach.
+                        </p>
+                    </article>
+
+                    <!-- Post Item 2 -->
+                    <article class="post-card py-6 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>OCT 12, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">LEARNING</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 6 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                Notes on learning by building
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            Why small, focused projects are the most effective way to build real skills and confidence as a developer.
+                        </p>
+                    </article>
+
+                    <!-- Post Item 3 -->
+                    <article class="post-card py-6 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>SEP 28, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">TECHNOLOGY</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 7 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                A few thoughts on open source
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            The value of open source goes far beyond code. It's a way of thinking, and a community.
+                        </p>
+                    </article>
+
+                    <!-- Post Item 4 -->
+                    <article class="post-card py-6 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>SEP 14, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">WEB DEVELOPMENT</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 5 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                Building a better developer experience
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            Small improvements in tooling, structure and workflow can have a big impact on productivity and focus.
+                        </p>
+                    </article>
+
+                    <!-- Post Item 5 -->
+                    <article class="post-card py-6 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>AUG 31, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">IDEAS</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 9 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                The importance of slow thinking
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            In a world of constant information, deliberate thinking helps us make better decisions and build a deeper understanding.
+                        </p>
+                    </article>
+
+                    <!-- Post Item 6 -->
+                    <article class="post-card py-6 group cursor-pointer">
+                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
+                            <span>AUG 17, 2026</span>
+                            <span>•</span>
+                            <span class="text-brand-accent font-medium">TECHNOLOGY</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 6 min read</span>
+                        </div>
+                        <div class="flex justify-between items-start gap-4">
+                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
+                                How I set up my development environment
+                            </h3>
+                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        </div>
+                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                            A simple, reliable setup that works across projects, from local development to production.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 space-y-10">
+                
+                <!-- About Me Widget -->
+                <div class="space-y-3 pb-8 border-b border-brand-border">
+                    <h3 class="font-serif text-xl text-brand-heading">About me</h3>
+                    <p class="text-brand-text text-sm leading-relaxed">
+                        I'm Zoran, a self-taught developer with a passion for building useful things, exploring new ideas and learning every day.
+                    </p>
+                    <a href="#" class="inline-flex items-center text-xs font-mono text-brand-accent hover:underline group pt-1">
+                        Read more <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
+                    </a>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="space-y-4 pb-8 border-b border-brand-border">
+                    <h3 class="font-serif text-xl text-brand-heading">Categories</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Web development</span>
+                            <span class="font-mono text-xs text-brand-text/70">12</span>
+                        </li>
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Technology</span>
+                            <span class="font-mono text-xs text-brand-text/70">8</span>
+                        </li>
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Learning</span>
+                            <span class="font-mono text-xs text-brand-text/70">6</span>
+                        </li>
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Ideas</span>
+                            <span class="font-mono text-xs text-brand-text/70">5</span>
+                        </li>
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">History</span>
+                            <span class="font-mono text-xs text-brand-text/70">3</span>
+                        </li>
+                        <li class="flex justify-between items-center group cursor-pointer">
+                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Personal</span>
+                            <span class="font-mono text-xs text-brand-text/70">2</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="space-y-4 pb-8">
+                    <h3 class="font-serif text-xl text-brand-heading">Tags</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">javascript</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">css</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">astro</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">nodejs</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">react</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">mongodb</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">productivity</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">reading</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">philosophy</a>
+                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">history</a>
+                    </div>
+                </div>
+
+                <!-- Terminal Quote Box -->
+                <div class="border border-brand-border rounded-lg p-5 bg-brand-card/40 space-y-3 font-mono text-xs">
+                    <div class="text-brand-accent font-semibold flex items-center gap-1.5">
+                        <span>&gt;_</span>
+                    </div>
+                    <p class="text-brand-heading leading-relaxed">
+                        Build something you're proud of.
+                    </p>
+                    <div class="w-5 h-[2px] bg-brand-accent mt-2"></div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-brand-border py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-text">
+            
+            <span class="text-brand-heading tracking-wider">
+                ZORAN TOPIC
+            </span>
+
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-brand-heading transition-colors">Home</a>
+                <a href="#" class="hover:text-brand-heading transition-colors">Posts</a>
+                <a href="#" class="hover:text-brand-heading transition-colors">About</a>
+                <a href="#" class="hover:text-brand-heading transition-colors">Admin</a>
+                
+                <div class="flex items-center space-x-3 pl-2 border-l border-brand-border">
+                    <a href="#" class="hover:text-brand-accent transition-colors" title="RSS Feed">
+                        <i data-feather="rss" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#" class="hover:text-brand-accent transition-colors" title="GitHub">
+                        <i data-feather="github" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script & Icons Initialization -->
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Theme switching logic
+        function setTheme(theme) {
+            const html = document.documentElement;
+            const lightBtn = document.getElementById('theme-light-btn');
+            const darkBtn = document.getElementById('theme-dark-btn');
+
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                darkBtn.className = "p-1.5 rounded-full bg-brand-border text-brand-accent transition-colors";
+                lightBtn.className = "p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors";
+            } else {
+                html.classList.remove('dark');
+                lightBtn.className = "p-1.5 rounded-full bg-slate-200 text-brand-accent transition-colors";
+                darkBtn.className = "p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors";
+            }
+        }
+    </script>
+</body>
+</html>

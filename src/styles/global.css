@@ -1,5 +1,5 @@
 :root {
-    --bg: #13161a;
+    --bg: #0a0b0e;
     --panel: #1d2025;
     --panel-soft: #373e47;
     --text: #adbac7;
@@ -39,35 +39,60 @@ a {
 }
 
 .page-shell {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 32px 20px 80px;
+    max-width: 75%;
+    margin: auto auto;
+    padding: 1rem;
 }
 
 .topbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 18px 0 28px;
+    gap: 1rem;
+    width: 100%;
+    padding: 20px 10%;
     border-bottom: 1px solid var(--border);
 }
 
 .brand {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.3rem;
     text-transform: uppercase;
+    margin-left: 0;
 }
 
 .nav {
     display: flex;
-    gap: 18px;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 1.5rem;
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 1rem;
+}
+
+.theme-selection {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 3rem;
 }
 
 .hero {
-    padding: 72px 0 48px;
+    display: flex;
+    padding: 100px 0 100px;
+    margin: auto;
+    border-bottom: 1px solid var(--border);
+}
+.hero-group-left {
+    flex: 0 0 60%;
+    margin: 0 auto;
+
+}
+.hero-group-right {
+    flex: 0 0 140px;
+    border-left: 1px solid var(--border);
+    margin: auto 0;
+    padding-left: 1rem;
+
 }
 
 .eyebrow {
@@ -150,6 +175,7 @@ a {
 
 header a:hover {
     color: var(--accent-strong);
+    font-weight: bold;
 }
 
 .post-card p {

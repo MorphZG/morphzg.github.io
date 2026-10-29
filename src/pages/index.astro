@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import HomepageLayout from "../layouts/HomepageLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => {
@@ -10,13 +10,13 @@ posts.sort((a, b) => {
 
 ---
 
-<HomepageLayout>
+<BaseLayout>
     <section id="posts" class="posts">
         <div class="section-heading">
             <h2>Latest posts</h2>
         </div>
 
-        <div class="post-grid">
+        <main class="post-grid">
             {
                 posts.map((post) => {
                     const slug = post.id.replace(/\.(md|mdx)$/i, "");
@@ -37,6 +37,6 @@ posts.sort((a, b) => {
                     );
                 })
             }
-        </div>
+        </main>
     </section>
-</HomepageLayout>
+</BaseLayout>
