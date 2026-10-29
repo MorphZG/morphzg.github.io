@@ -1,23 +1,23 @@
 ---
 import { Content as AboutMe, frontmatter } from '../content/about-me.md';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
----
+import HeroSection from '../components/HeroSection.astro';
 
+---
 <html lang="en">
     <head>
-        <BaseHead title={frontmatter.title} description={frontmatter.description} />
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
+        <Header/>
         <main id="top" class="page-shell">
-            <Header />
 
-            <article class="hero">
-                <p class="eyebrow">About</p>
-                <h1>{frontmatter.title}</h1>
-                <p class="lede">{frontmatter.description}</p>
-                <AboutMe />
-            </article>
+            <HeroSection eyebrow="welcome" title="Tell me something about yourself." />
+
+            <AboutMe />
+            
         </main>
     </body>
 </html>

@@ -45,7 +45,7 @@ a {
 }
 
 .topbar {
-    display: flex;
+    display: block;
     align-items: center;
     gap: 1rem;
     width: 100%;
@@ -53,7 +53,7 @@ a {
     border-bottom: 1px solid var(--border);
 }
 
-.brand {
+.topbar-left#brand {
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.3rem;
@@ -61,7 +61,16 @@ a {
     margin-left: 0;
 }
 
-.nav {
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    gap: 28px;
+}
+
+.nav-main {
     display: flex;
     justify-content: flex-end;
     margin-left: auto;
@@ -83,21 +92,19 @@ a {
     border-bottom: 1px solid var(--border);
 }
 .hero-group-left {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
     margin: 0 auto;
-
 }
 .hero-group-right {
-    flex: 0 0 140px;
+    flex: 0 0 20%;
     border-left: 1px solid var(--border);
     margin: auto 0;
     padding-left: 1rem;
-
 }
 
-.eyebrow {
+.hero-eyebrow {
     margin: 0 0 12px;
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
@@ -111,7 +118,7 @@ a {
     letter-spacing: -0.06em;
 }
 
-.lede {
+.hero-lede {
     max-width: 620px;
     margin-top: 18px;
     font-size: 1.1rem;
@@ -131,31 +138,27 @@ a {
     font-size: clamp(1.5rem, 2vw, 2.1rem);
 }
 
-.post-list {
-    margin: 20px;
-}
-
 .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card {
     font-family: var(--mono-space);
     padding: 22px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 5px;
     box-shadow: var(--shadow);
+    border-bottom: 1px solid var(--border);
 
     &.wide {
         margin: 10px;
     }
+    h3 {
+        font-family: var(--serif);
+    }
 }
 
-.post-date {
-    margin: 0 0 10px;
+.post-eyebrow {
+    display: flex;
     color: var(--accent-strong);
     font-size: 0.8rem;
     font-weight: 700;

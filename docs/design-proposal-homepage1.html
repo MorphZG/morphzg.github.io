@@ -1,440 +1,753 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZORAN TOPIC — Personal Blog & Portfolio</title>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A personal space for writing about code, ideas, technology, history, and the world."
+        />
+        <title>Zoran Topic — Notes on code, ideas and the world</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #0b1017;
+                --panel: #0e141d;
+                --text: #e8ebf0;
+                --muted: #91a0b5;
+                --faint: #748297;
+                --accent: #00d6a0;
+                --border: #202b3a;
+                --serif: Georgia, "Times New Roman", serif;
+                --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+                --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            }
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+            * {
+                box-sizing: border-box;
+            }
 
-    <!-- Feather Icons for Clean SVG Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+            html {
+                scroll-behavior: smooth;
+            }
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            bg: '#0b0f17',       /* Deep slate background */
-                            card: '#111723',     /* Slightly lighter for quote/terminal */
-                            accent: '#10b981',   /* Signature vibrant green */
-                            'accent-hover': '#34d399',
-                            border: '#1e293b',   /* Subtle dark borders */
-                            text: '#94a3b8',     /* Muted body text */
-                            heading: '#f1f5f9'   /* Crisp white headings */
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Newsreader', 'Georgia', 'serif'],
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace']
-                    }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--text);
+                font-family: var(--sans);
+                font-size: 15px;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition:
+                    color 160ms ease,
+                    border-color 160ms ease;
+            }
+
+            a:hover,
+            a:focus-visible {
+                color: var(--accent);
+            }
+            a:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 4px;
+            }
+
+            .container {
+                width: min(100% - 48px, 918px);
+                margin-inline: auto;
+            }
+
+            .site-header {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .header-inner {
+                min-height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 28px;
+            }
+
+            .brand {
+                font-family: var(--mono);
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            .header-right,
+            .main-nav,
+            .theme-toggle {
+                display: flex;
+                align-items: center;
+            }
+
+            .header-right {
+                gap: 28px;
+            }
+            .main-nav {
+                gap: 23px;
+            }
+
+            .main-nav a {
+                position: relative;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .main-nav a[aria-current="page"] {
+                color: var(--text);
+            }
+            .main-nav a[aria-current="page"]::after {
+                position: absolute;
+                right: 0;
+                bottom: -7px;
+                left: 0;
+                height: 2px;
+                background: var(--accent);
+                content: "";
+            }
+
+            .theme-toggle {
+                gap: 8px;
+                padding: 6px 9px;
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                color: var(--muted);
+                font-family: var(--mono);
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .theme-toggle .moon {
+                color: var(--accent);
+            }
+
+            main {
+                padding-bottom: 88px;
+            }
+
+            .hero {
+                display: grid;
+                grid-template-columns: minmax(0, 1.7fr) minmax(210px, 0.75fr);
+                align-items: center;
+                gap: 48px;
+                padding-block: 48px 54px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .eyebrow,
+            .post-meta,
+            .text-link,
+            .terminal,
+            .footer-brand,
+            .footer-nav {
+                font-family: var(--mono);
+            }
+
+            .eyebrow {
+                margin: 0 0 6px;
+                color: var(--accent);
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+                margin-top: 0;
+            }
+
+            h1 {
+                max-width: 610px;
+                margin-bottom: 22px;
+                font-family: var(--serif);
+                font-size: clamp(2.2rem, 4.2vw, 2.65rem);
+                font-weight: 400;
+                letter-spacing: -0.045em;
+                line-height: 1.02;
+            }
+
+            .accent-dot {
+                color: var(--accent);
+            }
+
+            .intro {
+                max-width: 570px;
+                margin-bottom: 0;
+                color: var(--muted);
+                font-size: 15.5px;
+                line-height: 1.55;
+            }
+
+            .hero-note {
+                margin: 24px 0 0;
+                padding: 8px 0 7px 20px;
+                border-left: 1px solid #2a394b;
+                color: var(--text);
+                font-family: var(--mono);
+                font-size: 12px;
+                line-height: 1.65;
+            }
+
+            .hero-note::after {
+                display: block;
+                width: 20px;
+                height: 2px;
+                margin-top: 10px;
+                background: var(--accent);
+                content: "";
+            }
+
+            .content-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 2fr) minmax(220px, 0.92fr);
+                gap: 54px;
+                padding-top: 34px;
+            }
+
+            .section-heading {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 18px;
+                margin-bottom: 22px;
+            }
+
+            h2,
+            h3 {
+                font-family: var(--serif);
+                font-weight: 400;
+                letter-spacing: -0.02em;
+            }
+
+            h2 {
+                margin-bottom: 0;
+                font-size: 25px;
+            }
+
+            .text-link {
+                color: var(--accent);
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            .post {
+                padding: 0 0 18px;
+                margin-bottom: 17px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .post:last-child {
+                border-bottom: 0;
+            }
+
+            .post-meta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 4px;
+                color: var(--faint);
+                font-size: 10px;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+            }
+
+            .post-category {
+                color: var(--accent);
+            }
+            .meta-dot {
+                color: #566478;
+            }
+
+            .post-title-row {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 14px;
+            }
+
+            .post h3 {
+                margin-bottom: 7px;
+                font-size: 20px;
+                line-height: 1.3;
+            }
+
+            .post-arrow {
+                flex: 0 0 auto;
+                color: var(--muted);
+                font-size: 16px;
+            }
+
+            .post p {
+                margin-bottom: 0;
+                color: var(--muted);
+                font-size: 13.5px;
+                line-height: 1.5;
+            }
+
+            .sidebar section {
+                padding-bottom: 25px;
+                margin-bottom: 28px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .sidebar h2 {
+                margin-bottom: 10px;
+                font-size: 17px;
+            }
+
+            .sidebar p {
+                margin-bottom: 9px;
+                color: var(--muted);
+                font-size: 12.5px;
+                line-height: 1.55;
+            }
+
+            .category-list {
+                display: grid;
+                gap: 5px;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .category-list a {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .category-list a span:last-child {
+                color: var(--faint);
+                font-family: var(--mono);
+                font-size: 10px;
+            }
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .tag {
+                padding: 3px 10px;
+                border: 1px solid #263244;
+                border-radius: 999px;
+                color: var(--muted);
+                font-family: var(--mono);
+                font-size: 10px;
+                line-height: 1.5;
+            }
+
+            .terminal {
+                padding: 14px 16px;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: var(--panel);
+                font-size: 10px;
+            }
+
+            .terminal-mark {
+                display: block;
+                margin-bottom: 7px;
+                color: var(--accent);
+                font-size: 12px;
+            }
+
+            .terminal p {
+                margin-bottom: 0;
+                color: var(--text);
+                font-family: var(--mono);
+                font-size: 10px;
+            }
+
+            .terminal-line {
+                width: 16px;
+                height: 2px;
+                margin-top: 10px;
+                background: var(--accent);
+            }
+
+            .site-footer {
+                border-top: 1px solid var(--border);
+            }
+
+            .footer-inner {
+                min-height: 62px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 22px;
+            }
+
+            .footer-brand {
+                font-size: 9px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .footer-nav {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                color: var(--muted);
+                font-size: 10px;
+            }
+
+            .footer-icons {
+                display: flex;
+                gap: 12px;
+                padding-left: 7px;
+                border-left: 1px solid var(--border);
+                font-size: 14px;
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    width: min(100% - 64px, 918px);
                 }
             }
-        }
-    </script>
 
-    <style>
-        /* Custom Fine-tuned Styles */
-        body {
-            background-color: #0b0f17;
-            color: #94a3b8;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+            @media (max-width: 720px) {
+                .container {
+                    width: min(100% - 36px, 560px);
+                }
+                .header-inner {
+                    min-height: 62px;
+                }
+                .header-right {
+                    gap: 15px;
+                }
+                .main-nav {
+                    gap: 14px;
+                }
+                .theme-toggle {
+                    display: none;
+                }
+                .hero {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                    padding-block: 38px 34px;
+                }
+                h1 {
+                    max-width: 540px;
+                    font-size: clamp(2.2rem, 8vw, 2.8rem);
+                }
+                .hero-note {
+                    max-width: 290px;
+                    margin: 0;
+                }
+                .content-grid {
+                    grid-template-columns: 1fr;
+                    gap: 36px;
+                    padding-top: 28px;
+                }
+                .sidebar {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 22px;
+                }
+                .sidebar section {
+                    margin: 0;
+                }
+                .terminal {
+                    align-self: start;
+                }
+            }
 
-        /* Light theme overrides */
-        html:not(.dark) body {
-            background-color: #f8fafc;
-            color: #475569;
-        }
-        
-        html:not(.dark) .bg-brand-bg {
-            background-color: #f8fafc;
-        }
+            @media (max-width: 460px) {
+                .container {
+                    width: min(100% - 30px, 420px);
+                }
+                .brand {
+                    font-size: 11px;
+                }
+                .header-right {
+                    gap: 0;
+                }
+                .main-nav {
+                    gap: 12px;
+                }
+                .main-nav a {
+                    font-size: 11px;
+                }
+                .main-nav a:last-child {
+                    display: none;
+                }
+                .hero {
+                    padding-top: 32px;
+                }
+                .intro {
+                    font-size: 14px;
+                }
+                .section-heading {
+                    align-items: center;
+                }
+                h2 {
+                    font-size: 23px;
+                }
+                .post h3 {
+                    font-size: 18px;
+                }
+                .post p {
+                    font-size: 13px;
+                }
+                .sidebar {
+                    grid-template-columns: 1fr;
+                }
+                .footer-inner {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding-block: 18px;
+                }
+                .footer-nav {
+                    gap: 14px;
+                }
+            }
 
-        html:not(.dark) .bg-brand-card {
-            background-color: #f1f5f9;
-        }
-
-        html:not(.dark) .border-brand-border {
-            border-color: #e2e8f0;
-        }
-
-        html:not(.dark) .text-brand-heading {
-            color: #0f172a;
-        }
-
-        html:not(.dark) .text-brand-text {
-            color: #475569;
-        }
-
-        .tag-pill {
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .tag-pill:hover {
-            border-color: #10b981;
-            color: #10b981;
-            transform: translateY(-1px);
-        }
-
-        .post-card {
-            transition: all 0.2s ease-in-out;
-        }
-
-        .post-card:hover .post-title {
-            color: #10b981;
-        }
-
-        .post-card:hover .post-arrow {
-            transform: translateX(4px);
-            color: #10b981;
-        }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col selection:bg-brand-accent selection:text-black">
-
-    <!-- Top Navigation Header -->
-    <header class="border-b border-brand-border py-5">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8 flex justify-between items-center">
-            
-            <!-- Logo / Brand -->
-            <a href="#" class="font-mono font-medium tracking-wider text-brand-heading hover:text-brand-accent transition-colors text-sm sm:text-base">
-                ZORAN TOPIC
-            </a>
-
-            <!-- Navigation Links & Theme Toggle -->
-            <div class="flex items-center space-x-6 sm:space-x-8">
-                <nav class="flex items-center space-x-6 text-sm">
-                    <a href="#" class="relative font-medium text-brand-heading py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-accent">
-                        Home
-                    </a>
-                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">Posts</a>
-                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">About</a>
-                    <a href="#" class="text-brand-text hover:text-brand-heading transition-colors">Admin</a>
-                </nav>
-
-                <!-- Theme Toggle Button -->
-                <div class="flex items-center border border-brand-border rounded-full p-1 bg-brand-card/50">
-                    <button id="theme-light-btn" onclick="setTheme('light')" class="p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors" title="Light Mode">
-                        <i data-feather="sun" class="w-3.5 h-3.5"></i>
-                    </button>
-                    <button id="theme-dark-btn" onclick="setTheme('dark')" class="p-1.5 rounded-full bg-brand-border text-brand-accent transition-colors" title="Dark Mode">
-                        <i data-feather="moon" class="w-3.5 h-3.5"></i>
-                    </button>
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+                *,
+                *::before,
+                *::after {
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="brand" href="#" aria-label="Zoran Topic home">Zoran Topic</a>
+                <div class="header-right">
+                    <nav class="main-nav" aria-label="Main navigation">
+                        <a href="#" aria-current="page">Home</a>
+                        <a href="#posts">Posts</a>
+                        <a href="#about">About</a>
+                        <a href="#admin">Admin</a>
+                    </nav>
+                    <div class="theme-toggle" aria-label="Dark theme">
+                        <span aria-hidden="true">☼</span><span aria-hidden="true">·</span
+                        ><span class="moon" aria-hidden="true">◔</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Main Container -->
-    <main class="max-w-6xl mx-auto px-6 sm:px-8 py-12 md:py-16 flex-grow w-full">
-
-        <!-- Hero Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-brand-border">
-            
-            <!-- Left Hero Content -->
-            <div class="lg:col-span-8 space-y-4">
-                <span class="font-mono text-xs font-semibold tracking-wider text-brand-accent uppercase block">
-                    WELCOME
-                </span>
-                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-heading leading-[1.15] tracking-tight">
-                    Writing about code, ideas and the world<span class="text-brand-accent">.</span>
-                </h1>
-                <p class="text-brand-text text-base sm:text-lg leading-relaxed max-w-2xl pt-2">
-                    I'm a developer and lifelong learner. This is my personal space for sharing thoughts, notes and experiments about web development, technology, history and whatever else catches my interest.
-                </p>
-            </div>
-
-            <!-- Right Hero Quote Box -->
-            <div class="lg:col-span-4 flex items-center lg:justify-end">
-                <div class="border-l-2 border-brand-border pl-6 py-2 max-w-xs space-y-3">
-                    <p class="font-mono text-sm text-brand-heading leading-relaxed">
-                        Better questions lead to better solutions.
+        <main class="container">
+            <section class="hero" aria-labelledby="hero-title">
+                <div>
+                    <p class="eyebrow">Welcome</p>
+                    <h1 id="hero-title">Writing about code, ideas and the world<span class="accent-dot">.</span></h1>
+                    <p class="intro">
+                        I'm a developer and lifelong learner. This is my personal space for sharing thoughts, notes and
+                        experiments about web development, technology, history and whatever else catches my interest.
                     </p>
-                    <div class="w-6 h-[2px] bg-brand-accent"></div>
                 </div>
-            </div>
-        </section>
+                <p class="hero-note">Better questions lead to better solutions.</p>
+            </section>
 
-        <!-- Content Grid: Latest Posts & Sidebar -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12">
+            <div class="content-grid">
+                <section id="posts" aria-labelledby="posts-title">
+                    <div class="section-heading">
+                        <h2 id="posts-title">Latest posts</h2>
+                        <a class="text-link" href="#posts">View all posts →</a>
+                    </div>
 
-            <!-- Main Content Area: Latest Posts -->
-            <section class="lg:col-span-8 space-y-8">
-                
-                <!-- Section Header -->
-                <div class="flex justify-between items-baseline pb-2">
-                    <h2 class="font-serif text-2xl sm:text-3xl text-brand-heading">
-                        Latest posts
-                    </h2>
-                    <a href="#" class="font-mono text-xs text-brand-accent hover:underline flex items-center gap-1 group">
-                        View all posts <span class="group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <!-- Post List -->
-                <div class="divide-y divide-brand-border">
-
-                    <!-- Post Item 1 -->
-                    <article class="post-card py-6 first:pt-0 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>OCT 24, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">WEB DEVELOPMENT</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 8 min read</span>
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-10-24">Oct 24, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Web development</span><span class="meta-dot">•</span
+                            ><span>◷ 8 min read</span>
                         </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                Understanding the modern web rendering landscape
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        <div class="post-title-row">
+                            <h3><a href="#">Understanding the modern web rendering landscape</a></h3>
+                            <a
+                                class="post-arrow"
+                                href="#"
+                                aria-label="Read Understanding the modern web rendering landscape"
+                                >→</a
+                            >
                         </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
-                            A practical look at the differences between SSR, CSR and hybrid rendering, and when to use each approach.
+                        <p>
+                            A practical look at the differences between SSR, CSR and hybrid rendering, and when to use
+                            each approach.
                         </p>
                     </article>
 
-                    <!-- Post Item 2 -->
-                    <article class="post-card py-6 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>OCT 12, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">LEARNING</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 6 min read</span>
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-10-12">Oct 12, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Learning</span><span class="meta-dot">•</span
+                            ><span>◷ 6 min read</span>
                         </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                Notes on learning by building
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        <div class="post-title-row">
+                            <h3><a href="#">Notes on learning by building</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read Notes on learning by building">→</a>
                         </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
-                            Why small, focused projects are the most effective way to build real skills and confidence as a developer.
+                        <p>
+                            Why small, focused projects are the most effective way to build real skills and confidence
+                            as a developer.
                         </p>
                     </article>
 
-                    <!-- Post Item 3 -->
-                    <article class="post-card py-6 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>SEP 28, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">TECHNOLOGY</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 7 min read</span>
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-09-28">Sep 28, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Technology</span><span class="meta-dot">•</span
+                            ><span>◷ 7 min read</span>
                         </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                A few thoughts on open source
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        <div class="post-title-row">
+                            <h3><a href="#">A few thoughts on open source</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read A few thoughts on open source">→</a>
                         </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
-                            The value of open source goes far beyond code. It's a way of thinking, and a community.
+                        <p>The value of open source goes far beyond code. It's a way of thinking, and a community.</p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-09-14">Sep 14, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Web development</span><span class="meta-dot">•</span
+                            ><span>◷ 5 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">Building a better developer experience</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read Building a better developer experience"
+                                >→</a
+                            >
+                        </div>
+                        <p>
+                            Small improvements in tooling, structure and workflow can have a big impact on productivity
+                            and focus.
                         </p>
                     </article>
 
-                    <!-- Post Item 4 -->
-                    <article class="post-card py-6 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>SEP 14, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">WEB DEVELOPMENT</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 5 min read</span>
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-08-31">Aug 31, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Ideas</span><span class="meta-dot">•</span
+                            ><span>◷ 9 min read</span>
                         </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                Building a better developer experience
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        <div class="post-title-row">
+                            <h3><a href="#">The importance of slow thinking</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read The importance of slow thinking">→</a>
                         </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
-                            Small improvements in tooling, structure and workflow can have a big impact on productivity and focus.
+                        <p>
+                            In a world of constant information, deliberate thinking helps us make better decisions and
+                            build a deeper understanding.
                         </p>
                     </article>
 
-                    <!-- Post Item 5 -->
-                    <article class="post-card py-6 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>AUG 31, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">IDEAS</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 9 min read</span>
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-08-17">Aug 17, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Technology</span><span class="meta-dot">•</span
+                            ><span>◷ 6 min read</span>
                         </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                The importance of slow thinking
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
+                        <div class="post-title-row">
+                            <h3><a href="#">How I set up my development environment</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read How I set up my development environment"
+                                >→</a
+                            >
                         </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
-                            In a world of constant information, deliberate thinking helps us make better decisions and build a deeper understanding.
-                        </p>
-                    </article>
-
-                    <!-- Post Item 6 -->
-                    <article class="post-card py-6 group cursor-pointer">
-                        <div class="flex items-center space-x-3 text-xs font-mono text-brand-text mb-2">
-                            <span>AUG 17, 2026</span>
-                            <span>•</span>
-                            <span class="text-brand-accent font-medium">TECHNOLOGY</span>
-                            <span>•</span>
-                            <span class="flex items-center gap-1"><i data-feather="clock" class="w-3 h-3"></i> 6 min read</span>
-                        </div>
-                        <div class="flex justify-between items-start gap-4">
-                            <h3 class="post-title font-serif text-xl sm:text-2xl text-brand-heading transition-colors">
-                                How I set up my development environment
-                            </h3>
-                            <span class="post-arrow text-brand-text transition-all mt-1.5 flex-shrink-0">→</span>
-                        </div>
-                        <p class="text-brand-text text-sm sm:text-base mt-2 leading-relaxed">
+                        <p>
                             A simple, reliable setup that works across projects, from local development to production.
                         </p>
                     </article>
+                </section>
 
-                </div>
-            </section>
+                <aside class="sidebar" aria-label="About and topics">
+                    <section id="about">
+                        <h2>About me</h2>
+                        <p>
+                            I'm Zoran, a self-taught developer with a passion for building useful things, exploring new
+                            ideas and learning every day.
+                        </p>
+                        <a class="text-link" href="#about">Read more →</a>
+                    </section>
 
-            <!-- Sidebar -->
-            <aside class="lg:col-span-4 space-y-10">
-                
-                <!-- About Me Widget -->
-                <div class="space-y-3 pb-8 border-b border-brand-border">
-                    <h3 class="font-serif text-xl text-brand-heading">About me</h3>
-                    <p class="text-brand-text text-sm leading-relaxed">
-                        I'm Zoran, a self-taught developer with a passion for building useful things, exploring new ideas and learning every day.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-xs font-mono text-brand-accent hover:underline group pt-1">
-                        Read more <span class="group-hover:translate-x-1 transition-transform ml-1">→</span>
-                    </a>
-                </div>
+                    <section>
+                        <h2>Categories</h2>
+                        <ul class="category-list">
+                            <li>
+                                <a href="#posts"><span>Web development</span><span>12</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Technology</span><span>8</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Learning</span><span>6</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Ideas</span><span>5</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>History</span><span>3</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Personal</span><span>2</span></a>
+                            </li>
+                        </ul>
+                    </section>
 
-                <!-- Categories Widget -->
-                <div class="space-y-4 pb-8 border-b border-brand-border">
-                    <h3 class="font-serif text-xl text-brand-heading">Categories</h3>
-                    <ul class="space-y-2.5 text-sm">
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Web development</span>
-                            <span class="font-mono text-xs text-brand-text/70">12</span>
-                        </li>
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Technology</span>
-                            <span class="font-mono text-xs text-brand-text/70">8</span>
-                        </li>
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Learning</span>
-                            <span class="font-mono text-xs text-brand-text/70">6</span>
-                        </li>
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Ideas</span>
-                            <span class="font-mono text-xs text-brand-text/70">5</span>
-                        </li>
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">History</span>
-                            <span class="font-mono text-xs text-brand-text/70">3</span>
-                        </li>
-                        <li class="flex justify-between items-center group cursor-pointer">
-                            <span class="text-brand-text group-hover:text-brand-accent transition-colors">Personal</span>
-                            <span class="font-mono text-xs text-brand-text/70">2</span>
-                        </li>
-                    </ul>
-                </div>
+                    <section>
+                        <h2>Tags</h2>
+                        <div class="tags" aria-label="Popular tags">
+                            <a class="tag" href="#posts">javascript</a>
+                            <a class="tag" href="#posts">css</a>
+                            <a class="tag" href="#posts">astro</a>
+                            <a class="tag" href="#posts">nodejs</a>
+                            <a class="tag" href="#posts">react</a>
+                            <a class="tag" href="#posts">mongodb</a>
+                            <a class="tag" href="#posts">productivity</a>
+                            <a class="tag" href="#posts">reading</a>
+                            <a class="tag" href="#posts">philosophy</a>
+                            <a class="tag" href="#posts">history</a>
+                        </div>
+                    </section>
 
-                <!-- Tags Widget -->
-                <div class="space-y-4 pb-8">
-                    <h3 class="font-serif text-xl text-brand-heading">Tags</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">javascript</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">css</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">astro</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">nodejs</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">react</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">mongodb</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">productivity</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">reading</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">philosophy</a>
-                        <a href="#" class="tag-pill text-xs font-mono px-3 py-1.5 rounded-full border border-brand-border text-brand-text hover:bg-brand-card">history</a>
+                    <div class="terminal" id="admin">
+                        <span class="terminal-mark">&gt;_</span>
+                        <p>Build something you're proud of.</p>
+                        <div class="terminal-line"></div>
                     </div>
-                </div>
-
-                <!-- Terminal Quote Box -->
-                <div class="border border-brand-border rounded-lg p-5 bg-brand-card/40 space-y-3 font-mono text-xs">
-                    <div class="text-brand-accent font-semibold flex items-center gap-1.5">
-                        <span>&gt;_</span>
-                    </div>
-                    <p class="text-brand-heading leading-relaxed">
-                        Build something you're proud of.
-                    </p>
-                    <div class="w-5 h-[2px] bg-brand-accent mt-2"></div>
-                </div>
-
-            </aside>
-
-        </div>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-brand-border py-8 mt-16">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-brand-text">
-            
-            <span class="text-brand-heading tracking-wider">
-                ZORAN TOPIC
-            </span>
-
-            <div class="flex items-center space-x-6">
-                <a href="#" class="hover:text-brand-heading transition-colors">Home</a>
-                <a href="#" class="hover:text-brand-heading transition-colors">Posts</a>
-                <a href="#" class="hover:text-brand-heading transition-colors">About</a>
-                <a href="#" class="hover:text-brand-heading transition-colors">Admin</a>
-                
-                <div class="flex items-center space-x-3 pl-2 border-l border-brand-border">
-                    <a href="#" class="hover:text-brand-accent transition-colors" title="RSS Feed">
-                        <i data-feather="rss" class="w-4 h-4"></i>
-                    </a>
-                    <a href="#" class="hover:text-brand-accent transition-colors" title="GitHub">
-                        <i data-feather="github" class="w-4 h-4"></i>
-                    </a>
-                </div>
+                </aside>
             </div>
+        </main>
 
-        </div>
-    </footer>
-
-    <!-- Theme Toggle Script & Icons Initialization -->
-    <script>
-        // Initialize Feather icons
-        feather.replace();
-
-        // Theme switching logic
-        function setTheme(theme) {
-            const html = document.documentElement;
-            const lightBtn = document.getElementById('theme-light-btn');
-            const darkBtn = document.getElementById('theme-dark-btn');
-
-            if (theme === 'dark') {
-                html.classList.add('dark');
-                darkBtn.className = "p-1.5 rounded-full bg-brand-border text-brand-accent transition-colors";
-                lightBtn.className = "p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors";
-            } else {
-                html.classList.remove('dark');
-                lightBtn.className = "p-1.5 rounded-full bg-slate-200 text-brand-accent transition-colors";
-                darkBtn.className = "p-1.5 rounded-full text-brand-text hover:text-brand-heading transition-colors";
-            }
-        }
-    </script>
-</body>
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <a class="footer-brand" href="#">Zoran Topic</a>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#posts">Posts</a>
+                    <a href="#about">About</a>
+                    <a href="#admin">Admin</a>
+                    <span class="footer-icons">
+                        <a href="#rss" aria-label="RSS feed">◔</a>
+                        <a href="https://github.com/" aria-label="GitHub">⌘</a>
+                    </span>
+                </nav>
+            </div>
+        </footer>
+    </body>
 </html>

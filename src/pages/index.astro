@@ -6,8 +6,6 @@ const posts = await getCollection("blog");
 posts.sort((a, b) => {
     return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
 });
-
-
 ---
 
 <BaseLayout>
@@ -22,13 +20,20 @@ posts.sort((a, b) => {
                     const slug = post.id.replace(/\.(md|mdx)$/i, "");
                     return (
                         <article class="post-card">
-                            <p class="post-date">
-                                {post.data.pubDate.toLocaleDateString("en-UK", {
-                                    month: "short",
-                                    day: "numeric",
-                                    year: "numeric",
-                                })}
-                            </p>
+                            <div class="post-eyebrow">
+                                <p class="post-date">
+                                    {post.data.pubDate.toLocaleDateString(
+                                        "en-UK",
+                                        {
+                                            month: "short",
+                                            day: "numeric",
+                                            year: "numeric",
+                                        },
+                                    )}
+                                </p>
+                                <p class="post-read-time">10min</p>
+                                <p class="post-category">webdev</p>
+                            </div>
                             <h3>
                                 <a href={`/posts/${slug}`}>{post.data.title}</a>
                             </h3>
