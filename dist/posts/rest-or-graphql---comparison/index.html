@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v7.3.5"><title>REST or GraphQL: Comparison</title><meta name="description" content="REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. In this post i will compare the two."><link rel="canonical" href="https://morphzg.github.io/posts/rest-or-graphql---comparison/"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet"><meta property="og:type" content="website"><meta property="og:url" content="https://morphzg.github.io/posts/rest-or-graphql---comparison/"><meta property="og:title" content="REST or GraphQL: Comparison"><meta property="og:description" content="REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. In this post i will compare the two."><meta property="og:image" content="https://morphzg.github.io/posts/rest-or-graphql---comparison/add-og-image"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="REST or GraphQL: Comparison"><meta name="twitter:description" content="REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. In this post i will compare the two."><meta name="twitter:image" content="https://morphzg.github.io/posts/rest-or-graphql---comparison/add-og-image"><style>:root{--bg:#0a0b0e;--panel:#1d2025;--panel-soft:#373e47;--text:#adbac7;--muted:#768390;--accent:#2ea043;--accent-strong:#3fb950;--border:#444c56;--shadow:0px 8px 24px #00000073;--mono-space:"Inconsolata", monospace, sans-serif;--serif:"Merriweather", serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--mono-space);background:var(--bg);color:var(--text);margin:0;line-height:1.6}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}.page-shell{max-width:75%;margin:auto;padding:1rem}.topbar{border-bottom:1px solid var(--border);align-items:center;gap:1rem;width:100%;padding:20px 10%;display:block}.topbar-left#brand{letter-spacing:.3rem;text-transform:uppercase;margin-left:0;font-size:1.25rem;font-weight:700}.topbar-right{align-items:center;display:flex}.header-right{gap:28px}.nav-main{color:var(--muted);justify-content:flex-end;gap:1.5rem;margin-left:auto;font-size:1rem;display:flex}.theme-selection{gap:.5rem;margin-left:3rem;display:flex}.hero{border-bottom:1px solid var(--border);margin:auto;padding:100px 0;display:flex}.hero-group-left{flex:0 0 70%;margin:0 auto}.hero-group-right{border-left:1px solid var(--border);flex:0 0 20%;margin:auto 0;padding-left:1rem}.hero-eyebrow{letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-size:.9rem;font-weight:700}.hero h1{letter-spacing:-.06em;margin:0;font-size:clamp(2.75rem,5vw,5rem);line-height:.95}.hero-lede{max-width:620px;color:var(--muted);margin-top:18px;font-size:1.1rem}.posts{padding-top:16px}.section-heading{margin-bottom:20px}.section-heading h2{margin:0;font-size:clamp(1.5rem,2vw,2.1rem)}.post-grid{flex-direction:column;display:flex}.post-card{font-family:var(--mono-space);box-shadow:var(--shadow);border-bottom:1px solid var(--border);padding:22px;&.wide{margin:10px}& h3{font-family:var(--serif)}}.post-eyebrow{color:var(--accent-strong);letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;font-weight:700;display:flex}.post-card h3{margin:0 0 10px;font-size:1.5rem;line-height:1.2}.post-card h3 a:hover{color:var(--accent-strong)}header a:hover{color:var(--accent-strong);font-weight:700}.post-card p{color:var(--muted);margin:0}article{font-family:var(--serif)}
+</style></head><body><main class="page-shell"><nav class="topbar"><a href="/" class="brand">Back home</a></nav><img src="/_astro/rest-graphql-comparison.U0eA0Ovb_1XtaPV.webp" alt="REST or GraphQL: Comparison" loading="lazy" decoding="async" width="1000" height="421"><article><p class="eyebrow">Blog post</p><h1>REST or GraphQL: Comparison</h1><p>21 Oct 2026</p><p class="lede">REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. In this post i will compare the two.</p><p>Modern web applications rarely work in isolation. A React interface might need to load a project, update a task, or show which team members are responsible for upcoming deadlines. The frontend needs a reliable way to ask the backend for data and tell it when something changes.</p>
+<p>That is the job of an API.</p>
+<p>REST and GraphQL are two widely used approaches to building APIs. Both can support the same application, but they organize requests differently. REST usually exposes resources through multiple endpoints, while GraphQL lets clients describe the fields and related data they want in a query.</p>
+<p>Neither approach is automatically better. The right choice depends on your application’s data, the needs of its clients, and how much complexity your team is prepared to manage.</p>
+<p>To make the differences concrete, let’s use TaskFlow, a project-management app where users create projects, assign tasks, and track progress.</p>
+<h2 id="a-quick-look-at-apis">A quick look at APIs</h2>
+<p>An Application Programming Interface (API) defines how software components communicate. In a typical web application, the browser sends an HTTP request to the backend. The backend applies business rules, accesses the database or another service, and returns a response.</p>
+<p>The React frontend should not access the database directly. Instead, it communicates with a backend through an API layer. REST and GraphQL are two ways to design that layer; neither replaces React, Node.js, or the database itself.</p>
+<h2 id="how-rest-works">How REST works</h2>
+<p>REST stands for Representational State Transfer. It is an architectural style for distributed systems. In a REST API, endpoints commonly represent resources, while HTTP methods describe what the client wants to do.</p>
+<p>A TaskFlow API might expose endpoints like these:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/projects</code></td>
+<td>List projects</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/projects/42</code></td>
+<td>Get one project</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/api/projects</code></td>
+<td>Create a project</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><code>/api/projects/42</code></td>
+<td>Update a project</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/api/projects/42</code></td>
+<td>Delete a project</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/projects/42/tasks</code></td>
+<td>List a project’s tasks</td>
+</tr>
+</tbody>
+</table>
+<p>The URL identifies the resource, and the HTTP method communicates the operation. This makes REST endpoints relatively easy to understand, test, and monitor with familiar HTTP tools.</p>
+<p>A request to <code>GET /api/projects/42</code> might return a JSON object containing the project’s ID, name, description, status, and owner. The exact response is generally defined by the endpoint, so a client that needs only the name may still receive other fields.</p>
+<p>That is not necessarily a problem. A well-designed endpoint can return a useful, predictable representation. REST APIs can also support filters, pagination, selected fields, and embedded relationships when clients need more control.</p>
+<h3 id="a-small-rest-example">A small REST example</h3>
+<p>With Express, a route can return a project by ID:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/api/projects/:id"</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">async</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">req</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">res</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> project</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> db.project.</span><span style="color:#B392F0">findUnique</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    where: { id: req.params.id }</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">project) </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> res.</span><span style="color:#B392F0">status</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">404</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">({ error: </span><span style="color:#9ECBFF">"Not found"</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#E1E4E8">  res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(project);</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<p>This is a simplified example: a production API also needs input validation, authentication and authorization where appropriate, consistent error handling, and tests. The important pattern is that the route represents a resource and the server responds with an HTTP status and a representation of that resource.</p>
+<h3 id="where-rest-shines">Where REST shines</h3>
+<p>REST fits naturally into the HTTP ecosystem. Resource URLs work well with standard HTTP caching, CDNs, monitoring tools, and API gateways. Individual endpoints also give teams a relatively clear place to apply permissions, measure performance, and document behavior.</p>
+<p>Because the server defines each endpoint’s response, the workload can be easier to predict. The trade-off is that clients with different data needs may require additional endpoints or extra requests.</p>
+<h2 id="how-graphql-works">How GraphQL works</h2>
+<p>GraphQL is a query language for APIs and a runtime that executes those queries against the data a server exposes. It was developed at Facebook and open-sourced in 2015.</p>
+<p>A GraphQL API commonly uses a single endpoint, such as <code>/graphql</code>. Instead of choosing an endpoint that determines the full response shape, the client sends a query specifying the fields and relationships it needs.</p>
+<p>For example, a TaskFlow screen could request a project’s name and status alongside the title and status of its tasks:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="graphql"><code><span class="line"><span style="color:#F97583">query</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  project</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">id</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"42"</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#FFAB70">    name</span></span>
+<span class="line"><span style="color:#FFAB70">    status</span></span>
+<span class="line"><span style="color:#FFAB70">    tasks</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">      title</span></span>
+<span class="line"><span style="color:#FFAB70">      status</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>The response mirrors the requested fields. If the client did not ask for the project’s description or task IDs, those fields are not included in the response.</p>
+<p>This is GraphQL’s main appeal: clients can request different combinations of related data without requiring a separate endpoint for every screen. It can reduce network round trips, but one request does not automatically mean less server work or better performance.</p>
+<h3 id="queries-mutations-and-subscriptions">Queries, mutations, and subscriptions</h3>
+<p>GraphQL has three operation types:</p>
+<ul>
+<li><code>Query</code> reads data.</li>
+<li><code>Mutation</code> changes data.</li>
+<li><code>Subscription</code> delivers updates over a supported persistent connection, often using WebSockets.</li>
+</ul>
+<p>A mutation might create a project and request the new project’s ID and name. A subscription might deliver a task’s status when it changes. Subscriptions need compatible server and transport support; they are not enabled automatically by using GraphQL.</p>
+<h2 id="schemas-and-resolvers">Schemas and resolvers</h2>
+<p>GraphQL APIs are built around a schema. The schema describes the types of data available, the fields those types contain, and the operations clients can perform. GraphQL validates a query against the schema before executing it.</p>
+<p>A small part of a TaskFlow schema might look like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="graphql"><code><span class="line"><span style="color:#F97583">type</span><span style="color:#79B8FF"> Project</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  id</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">ID</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#FFAB70">  name</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">String</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#FFAB70">  status</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">String</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#FFAB70">  tasks</span><span style="color:#E1E4E8">: [</span><span style="color:#79B8FF">Task</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#79B8FF"> Task</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  id</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">ID</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#FFAB70">  title</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">String</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#FFAB70">  status</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">String</span><span style="color:#F97583">!</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#79B8FF"> Query</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  project</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">id</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">ID</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">): </span><span style="color:#79B8FF">Project</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>The exclamation mark means a value cannot be <code>null</code>. For example, <code>name: String!</code> promises a non-null string, while <code>project(id: ID!): Project</code> requires an ID but allows the project result to be <code>null</code> if no matching project exists.</p>
+<p>A typed schema enables query validation, editor autocomplete, generated client types, and clearer API documentation. It does not replace business-rule validation or access-control checks.</p>
+<p>A resolver is a function that supplies the value for a field. It might query a database, call another service, or calculate a value. For example, the resolver for <code>project</code> looks up a project by ID, while the resolver for <code>tasks</code> retrieves tasks belonging to that project.</p>
+<p>GraphQL runs the resolvers needed to build the response. That flexibility is useful, but it also means developers must pay attention to database access, authorization, and the cost of requested queries.</p>
+<h2 id="calling-the-apis-from-a-frontend">Calling the APIs from a frontend</h2>
+<p>A REST request can be straightforward:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> response</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/api/projects/42"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">response.ok) </span><span style="color:#F97583">throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Could not load project"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> project</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<p>The URL identifies the resource, and the server returns the representation defined for that endpoint.</p>
+<p>A GraphQL request usually sends a query and its variables to the GraphQL endpoint:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> response</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"/graphql"</span><span style="color:#E1E4E8">, {</span></span>
+<span class="line"><span style="color:#E1E4E8">  method: </span><span style="color:#9ECBFF">"POST"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  headers: { </span><span style="color:#9ECBFF">"Content-Type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"application/json"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#E1E4E8">  body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">    query: </span><span style="color:#9ECBFF">"query ($id: ID!) { project(id: $id) { name status } }"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    variables: { id: </span><span style="color:#9ECBFF">"42"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">  })</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> result</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> response.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (result.errors) </span><span style="color:#F97583">throw</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Error</span><span style="color:#E1E4E8">(result.errors[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">].message);</span></span></code></pre>
+<p>This example is intentionally compact. In production, the client should also handle network failures and account for the fact that GraphQL can return partial data alongside errors. Variables keep values separate from the query structure, making queries easier to reuse and safer than manually inserting values into query strings.</p>
+<p>For larger React applications, libraries such as Apollo Client and urql provide tools for caching, loading states, and error handling. They can be useful, but they introduce their own concepts and configuration. Start by understanding the underlying HTTP requests before relying on a client library to manage them.</p>
+<h2 id="rest-vs-graphql-the-main-differences">REST vs GraphQL: the main differences</h2>
+<p>The central difference is who controls the response shape. REST clients request resources through endpoints that define the response. GraphQL clients query a schema and specify the fields they want.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>REST</th>
+<th>GraphQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API structure</td>
+<td>Usually multiple resource-oriented endpoints</td>
+<td>Commonly one endpoint</td>
+</tr>
+<tr>
+<td>Selecting fields</td>
+<td>Generally defined by the endpoint, with optional field-selection features</td>
+<td>Specified in each query</td>
+</tr>
+<tr>
+<td>Related data</td>
+<td>May require multiple requests or custom endpoints</td>
+<td>Can be requested together through nested fields</td>
+</tr>
+<tr>
+<td>Type system</td>
+<td>REST itself does not prescribe one; tools such as OpenAPI can describe an API</td>
+<td>Schema and type system are central to the approach</td>
+</tr>
+<tr>
+<td>HTTP caching</td>
+<td>Often straightforward with URL-based caching</td>
+<td>Usually needs additional cache design</td>
+</tr>
+<tr>
+<td>API evolution</td>
+<td>Versioned URLs or headers are common</td>
+<td>Often evolves through added and deprecated fields</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>HTTP status codes and response bodies</td>
+<td>HTTP status plus GraphQL-level errors</td>
+</tr>
+<tr>
+<td>Operational complexity</td>
+<td>Often easier to reason about per endpoint</td>
+<td>Requires attention to query cost and resolver behavior</td>
+</tr>
+</tbody>
+</table>
+<p>Neither approach is inherently faster or more scalable. Performance depends on database queries, network conditions, caching, payload size, and implementation quality.</p>
+<h3 id="over-fetching-and-under-fetching">Over-fetching and under-fetching</h3>
+<p>Imagine a project overview needs the project’s name plus the title and status of each task. With REST, the frontend might request the project and then its tasks separately. The project endpoint might return fields the screen does not use, or it might not include the related tasks at all.</p>
+<p>These situations are often called over-fetching and under-fetching. GraphQL can address them by letting the client request exactly the fields it needs, including related data, in one query.</p>
+<p>REST can address the same concerns with query parameters, field selection, embedded resources, or endpoints tailored to a particular use case. GraphQL’s advantage is that clients can combine fields in different ways without requiring the backend team to design a new endpoint for every variation.</p>
+<h2 id="performance-and-the-n1-problem">Performance and the N+1 problem</h2>
+<p>GraphQL queries can be compact while triggering expensive work on the server. Suppose a request loads 100 projects and asks for each project’s owner. A simple resolver might fetch the projects in one database query and then perform another query for every owner. That results in 101 queries, a pattern known as the N+1 problem.</p>
+<p>Common ways to address it include batching related lookups with tools such as DataLoader, using suitable database joins, caching where appropriate, and paginating large collections. Teams should also monitor resolver performance and set query depth, complexity, and execution-time limits.</p>
+<p>REST can suffer from inefficient database access too. A fixed endpoint often makes its workload easier to predict, while a GraphQL server may receive many combinations of fields and nested relationships. Neither style removes the need to measure and optimize the data layer.</p>
+<h2 id="caching">Caching</h2>
+<p>Caching reduces repeated work, but the approaches differ.</p>
+<p>A REST request such as <code>GET /api/projects/42</code> has a distinct URL and fits naturally into browser, proxy, and CDN caching. HTTP headers such as <code>Cache-Control</code> can tell compatible caches how long a response may be reused. This needs care when responses contain user-specific or sensitive data.</p>
+<p>GraphQL often sends many different queries to the same endpoint. A basic HTTP cache cannot assume every request to <code>/graphql</code> has the same response. GraphQL applications may use normalized client caches, server-side caching of expensive results, persisted queries, or carefully configured CDN caching.</p>
+<p>REST’s HTTP caching is often simpler to get started with. GraphQL clients can provide sophisticated caching, but the team must decide how records are identified and how cached data is refreshed after mutations.</p>
+<h2 id="errors-and-status-codes">Errors and status codes</h2>
+<p>REST APIs commonly use HTTP status codes to communicate outcomes. A missing project might return <code>404 Not Found</code> with a JSON error message. Other familiar statuses include <code>201 Created</code>, <code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>403 Forbidden</code>, and <code>500 Internal Server Error</code>.</p>
+<p>GraphQL errors work a little differently. A response can include both <code>data</code> and <code>errors</code>, which allows some fields to succeed even when another field fails. For example, a dashboard might still receive team information even if one project field could not be loaded.</p>
+<p>Because a GraphQL execution error can occur in a response with HTTP status <code>200</code>, checking <code>response.ok</code> alone is not enough. The client should inspect the GraphQL response for an <code>errors</code> array and decide how to handle partial data. Servers can still use HTTP status codes for issues such as malformed requests or validation failures.</p>
+<h2 id="security">Security</h2>
+<p>Neither REST nor GraphQL is secure by default. Both need authentication, authorization, input validation, safe database access, rate limiting, logging, and tests.</p>
+<p>In TaskFlow, the server must check whether the signed-in user is allowed to update a particular task before applying a mutation. Knowing or guessing a task ID must never grant permission to change it. These checks belong on the server, regardless of how the request is expressed.</p>
+<p>GraphQL has additional concerns because clients can request deeply nested fields or expensive combinations of data. Useful safeguards include limiting query depth and complexity, setting execution-time and page-size limits, monitoring expensive operations, and ensuring resolvers do not expose sensitive fields. Authentication alone is not enough: a signed-in user may still lack permission to access a particular project or task.</p>
+<p>Schema validation can confirm that a field exists and its arguments have the right types. It cannot determine whether the current user is authorized to access the requested record. Disabling GraphQL introspection alone does not secure an API; proper authorization and resource-use controls matter far more.</p>
+<h2 id="versioning-and-api-evolution">Versioning and API evolution</h2>
+<p>REST APIs often publish explicit versions, such as <code>/api/v1/projects/42</code> and <code>/api/v2/projects/42</code>. This can make breaking changes easier to contain, although teams may need to maintain more than one version.</p>
+<p>GraphQL APIs often evolve by adding fields and marking old ones as deprecated. Clients can migrate gradually, provided the team tracks field usage and gives consumers time to update. Removing a field that a client still uses can break that client, so GraphQL does not eliminate the need for compatibility planning.</p>
+<p>Both approaches benefit from clear documentation, automated tests, monitoring, and a policy for introducing and removing API capabilities.</p>
+<h2 id="pagination-and-filtering">Pagination and filtering</h2>
+<p>Large collections should not be returned in a single response. Loading every task at once can waste bandwidth and memory and make the application slower.</p>
+<p>A REST endpoint might use query parameters:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="http"><code><span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8"> /api/tasks?limit=20&amp;offset=40&amp;status=TODO</span></span></code></pre>
+<p>GraphQL can expose similar options as field arguments, often using a cursor-based connection pattern. That pattern typically returns a page of items along with a cursor and an indicator of whether another page exists.</p>
+<p>Offset pagination is simple and can work well for many use cases. Cursor pagination can be more reliable for large or frequently changing datasets. The right choice depends on how the data is ordered and how records change over time. Whichever API style you choose, validate filters and enforce a maximum page size on the server.</p>
+<h2 id="when-should-you-choose-each">When should you choose each?</h2>
+<h3 id="rest-is-often-a-good-fit-when">REST is often a good fit when</h3>
+<ul>
+<li>Your application is mainly CRUD operations over clearly defined resources.</li>
+<li>Standard HTTP caching and CDN integration are important.</li>
+<li>You want an API that external consumers can understand and use easily.</li>
+<li>Your team prefers predictable endpoints and a smaller conceptual surface area.</li>
+<li>You need conventional resource operations, file downloads, or webhooks.</li>
+</ul>
+<h3 id="graphql-is-often-a-good-fit-when">GraphQL is often a good fit when</h3>
+<ul>
+<li>Different screens need different combinations of the same data.</li>
+<li>Your domain contains many connected entities.</li>
+<li>Several clients have different data requirements.</li>
+<li>Schema validation and generated client types would help the team.</li>
+<li>You need to combine data from multiple backend services behind one API.</li>
+<li>Your team can manage resolver performance, caching, and query complexity.</li>
+</ul>
+<p>For a project-management application such as TaskFlow, I would usually start with REST. It is a practical way to demonstrate full-stack fundamentals: authentication, database design, validation, business rules, testing, and deployment.</p>
+<p>GraphQL becomes more attractive when multiple screens or clients need different views of the same connected data. A task page, project overview, and team dashboard may each need a different combination of tasks, users, comments, and activity history.</p>
+<p>If you are learning both technologies, implement a feature with REST first and then build the same feature with GraphQL. Compare the request flow, database queries, response sizes, code complexity, and ease of change. That exercise will teach you more than assuming one approach is always superior.</p>
+<h2 id="can-rest-and-graphql-coexist">Can REST and GraphQL coexist?</h2>
+<p>Yes. An application does not have to choose only one approach.</p>
+<p>For example, an application might use REST for login, file uploads, and incoming webhooks while using GraphQL for queries that combine data from several related services. GraphQL can also sit in front of existing REST APIs, giving the frontend one place to request data without requiring every backend service to be redesigned.</p>
+<p>A hybrid approach adds another layer to test, document, monitor, and secure. Use it when it solves a real problem, not simply because both technologies are available.</p>
+<h2 id="a-practical-learning-path">A practical learning path</h2>
+<p>If you are comfortable with JavaScript and React, start by learning HTTP fundamentals and building a small REST API with Express. Practice routes, request methods, status codes, validation, authentication, and CRUD operations.</p>
+<p>Then learn GraphQL schemas, types, nullability, queries, mutations, arguments, and variables. Connect resolvers to a database and pay attention to context and authorization. Once the basics are clear, integrate the API with React and explore a client library if its caching and component features are useful.</p>
+<p>Finally, focus on production concerns: pagination, efficient data loading, error handling, security, logging, and tests. Implementing the same feature in both styles is a good way to compare the trade-offs with evidence rather than intuition.</p>
+<h3 id="read-more">Read more</h3>
+<ul>
+<li><a href="https://graphql.org/learn/">GraphQL documentation</a> — schemas, queries, mutations, and core concepts.</li>
+<li><a href="https://www.apollographql.com/docs/apollo-server/getting-started">Apollo Server documentation</a> — building a GraphQL server.</li>
+<li><a href="https://www.apollographql.com/docs/react">Apollo Client documentation</a> — using GraphQL with React.</li>
+<li><a href="https://expressjs.com/en/guide/routing.html">Express routing guide</a> — implementing REST endpoints with Express.</li>
+<li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">Roy Fielding’s dissertation on REST</a> — the architectural foundations of REST.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>REST and GraphQL solve the same broad problem: they let clients work with backend data and operations. Their difference is how they organize that interaction.</p>
+<p>REST structures APIs around resources and HTTP methods. It is familiar, works naturally with standard HTTP caching, and is often a strong choice for applications built around conventional resource operations.</p>
+<p>GraphQL gives clients a typed schema and lets them request specific fields and related data. It is particularly useful when different screens or clients need different views of a connected data model.</p>
+<p>Neither approach guarantees better performance, security, or maintainability. Those outcomes depend on thoughtful API design, efficient database access, sensible caching, testing, and operational controls.</p>
+<p>Start with the simplest approach that fits the problem in front of you. Learn the alternatives well enough to understand their trade-offs, and choose based on your application’s needs rather than the popularity of a technology.</p>
+</article></main></body></html>

@@ -1,13 +1,41 @@
 ---
+
 ---
 
-
 <header class="topbar">
-    <div class="brand">Zoran Topic</div>
-    <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/posts">Posts</a>
-        <a href="/about">About</a>
-        <a href="/publish">ADMIN</a>
-    </nav>
+    <div class="topbar-left" id="brand">Zoran Topic</div>
+    <div class="topbar-right">
+        <nav class="nav-main">
+            <a href="/">Home</a>
+            <a href="/posts">Posts</a>
+            <a href="/about">About</a>
+            <a href="/publish">_admin</a>
+        </nav>
+        <div class="theme-selection">
+            <button
+                id="theme-light-btn"
+                onclick="setTheme('light')"
+                title="Light Mode"
+                >L
+            </button>
+            <button
+                id="theme-dark-btn"
+                onclick="setTheme('dark')"
+                title="Dark Mode"
+                >D
+            </button>
+        </div>
+    </div>
 </header>
+
+<style>
+    button {
+        background-color: var(--bg);
+        color: var(--muted);
+        border-radius: 50%;
+    }
+    button:hover {
+        background-color: var(--accent);
+        color: var(--accent);
+    }
+</style>

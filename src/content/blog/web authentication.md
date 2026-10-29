@@ -4,7 +4,8 @@ description: ''
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
-tags: []
+tags: ['webdev', 'security', 'backend']
+category: 'security'
 draft: true
 ---
 

@@ -3,7 +3,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
-
 ---
 
 <html lang="en">
@@ -11,13 +10,14 @@ import HeroSection from "../components/HeroSection.astro";
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
+        <Header />
         <main id="top" class="page-shell">
 
-            <Header />
-            <HeroSection eyebrow="Welcome" title={SITE_TITLE}, description={SITE_DESCRIPTION}/>
-            <slot /> <!-- content slot -->
+            <HeroSection eyebrow="Welcome" title={SITE_TITLE} 
+                description={SITE_DESCRIPTION} />
 
+            <slot />
+            
         </main>
     </body>
 </html>
-

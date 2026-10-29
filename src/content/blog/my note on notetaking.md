@@ -4,7 +4,8 @@ description: 'Start with a single, boring note. Let it boil and cook for a while
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
-tags: []
+tags: ['productivity', 'notetaking']
+category: 'productivity'
 draft: true
 ---
 

@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A personal space for writing about code, ideas, technology, history, and the world."
+        />
+        <title>Zoran Topic — Notes on code, ideas and the world</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #0b1017;
+                --panel: #0e141d;
+                --text: #e8ebf0;
+                --muted: #91a0b5;
+                --faint: #748297;
+                --accent: #00d6a0;
+                --border: #202b3a;
+                --serif: Georgia, "Times New Roman", serif;
+                --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+                --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--text);
+                font-family: var(--sans);
+                font-size: 15px;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                transition:
+                    color 160ms ease,
+                    border-color 160ms ease;
+            }
+
+            a:hover,
+            a:focus-visible {
+                color: var(--accent);
+            }
+            a:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 4px;
+            }
+
+            .container {
+                width: min(100% - 48px, 918px);
+                margin-inline: auto;
+            }
+
+            .site-header {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .header-inner {
+                min-height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 28px;
+            }
+
+            .brand {
+                font-family: var(--mono);
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            .header-right,
+            .main-nav,
+            .theme-toggle {
+                display: flex;
+                align-items: center;
+            }
+
+            .header-right {
+                gap: 28px;
+            }
+            .main-nav {
+                gap: 23px;
+            }
+
+            .main-nav a {
+                position: relative;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            .main-nav a[aria-current="page"] {
+                color: var(--text);
+            }
+            .main-nav a[aria-current="page"]::after {
+                position: absolute;
+                right: 0;
+                bottom: -7px;
+                left: 0;
+                height: 2px;
+                background: var(--accent);
+                content: "";
+            }
+
+            .theme-toggle {
+                gap: 8px;
+                padding: 6px 9px;
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                color: var(--muted);
+                font-family: var(--mono);
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .theme-toggle .moon {
+                color: var(--accent);
+            }
+
+            main {
+                padding-bottom: 88px;
+            }
+
+            .hero {
+                display: grid;
+                grid-template-columns: minmax(0, 1.7fr) minmax(210px, 0.75fr);
+                align-items: center;
+                gap: 48px;
+                padding-block: 48px 54px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .eyebrow,
+            .post-meta,
+            .text-link,
+            .terminal,
+            .footer-brand,
+            .footer-nav {
+                font-family: var(--mono);
+            }
+
+            .eyebrow {
+                margin: 0 0 6px;
+                color: var(--accent);
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+                margin-top: 0;
+            }
+
+            h1 {
+                max-width: 610px;
+                margin-bottom: 22px;
+                font-family: var(--serif);
+                font-size: clamp(2.2rem, 4.2vw, 2.65rem);
+                font-weight: 400;
+                letter-spacing: -0.045em;
+                line-height: 1.02;
+            }
+
+            .accent-dot {
+                color: var(--accent);
+            }
+
+            .intro {
+                max-width: 570px;
+                margin-bottom: 0;
+                color: var(--muted);
+                font-size: 15.5px;
+                line-height: 1.55;
+            }
+
+            .hero-note {
+                margin: 24px 0 0;
+                padding: 8px 0 7px 20px;
+                border-left: 1px solid #2a394b;
+                color: var(--text);
+                font-family: var(--mono);
+                font-size: 12px;
+                line-height: 1.65;
+            }
+
+            .hero-note::after {
+                display: block;
+                width: 20px;
+                height: 2px;
+                margin-top: 10px;
+                background: var(--accent);
+                content: "";
+            }
+
+            .content-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 2fr) minmax(220px, 0.92fr);
+                gap: 54px;
+                padding-top: 34px;
+            }
+
+            .section-heading {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 18px;
+                margin-bottom: 22px;
+            }
+
+            h2,
+            h3 {
+                font-family: var(--serif);
+                font-weight: 400;
+                letter-spacing: -0.02em;
+            }
+
+            h2 {
+                margin-bottom: 0;
+                font-size: 25px;
+            }
+
+            .text-link {
+                color: var(--accent);
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            .post {
+                padding: 0 0 18px;
+                margin-bottom: 17px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .post:last-child {
+                border-bottom: 0;
+            }
+
+            .post-meta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 4px;
+                color: var(--faint);
+                font-size: 10px;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+            }
+
+            .post-category {
+                color: var(--accent);
+            }
+            .meta-dot {
+                color: #566478;
+            }
+
+            .post-title-row {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 14px;
+            }
+
+            .post h3 {
+                margin-bottom: 7px;
+                font-size: 20px;
+                line-height: 1.3;
+            }
+
+            .post-arrow {
+                flex: 0 0 auto;
+                color: var(--muted);
+                font-size: 16px;
+            }
+
+            .post p {
+                margin-bottom: 0;
+                color: var(--muted);
+                font-size: 13.5px;
+                line-height: 1.5;
+            }
+
+            .sidebar section {
+                padding-bottom: 25px;
+                margin-bottom: 28px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .sidebar h2 {
+                margin-bottom: 10px;
+                font-size: 17px;
+            }
+
+            .sidebar p {
+                margin-bottom: 9px;
+                color: var(--muted);
+                font-size: 12.5px;
+                line-height: 1.55;
+            }
+
+            .category-list {
+                display: grid;
+                gap: 5px;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .category-list a {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+            .category-list a span:last-child {
+                color: var(--faint);
+                font-family: var(--mono);
+                font-size: 10px;
+            }
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .tag {
+                padding: 3px 10px;
+                border: 1px solid #263244;
+                border-radius: 999px;
+                color: var(--muted);
+                font-family: var(--mono);
+                font-size: 10px;
+                line-height: 1.5;
+            }
+
+            .terminal {
+                padding: 14px 16px;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: var(--panel);
+                font-size: 10px;
+            }
+
+            .terminal-mark {
+                display: block;
+                margin-bottom: 7px;
+                color: var(--accent);
+                font-size: 12px;
+            }
+
+            .terminal p {
+                margin-bottom: 0;
+                color: var(--text);
+                font-family: var(--mono);
+                font-size: 10px;
+            }
+
+            .terminal-line {
+                width: 16px;
+                height: 2px;
+                margin-top: 10px;
+                background: var(--accent);
+            }
+
+            .site-footer {
+                border-top: 1px solid var(--border);
+            }
+
+            .footer-inner {
+                min-height: 62px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 22px;
+            }
+
+            .footer-brand {
+                font-size: 9px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .footer-nav {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                color: var(--muted);
+                font-size: 10px;
+            }
+
+            .footer-icons {
+                display: flex;
+                gap: 12px;
+                padding-left: 7px;
+                border-left: 1px solid var(--border);
+                font-size: 14px;
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    width: min(100% - 64px, 918px);
+                }
+            }
+
+            @media (max-width: 720px) {
+                .container {
+                    width: min(100% - 36px, 560px);
+                }
+                .header-inner {
+                    min-height: 62px;
+                }
+                .header-right {
+                    gap: 15px;
+                }
+                .main-nav {
+                    gap: 14px;
+                }
+                .theme-toggle {
+                    display: none;
+                }
+                .hero {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                    padding-block: 38px 34px;
+                }
+                h1 {
+                    max-width: 540px;
+                    font-size: clamp(2.2rem, 8vw, 2.8rem);
+                }
+                .hero-note {
+                    max-width: 290px;
+                    margin: 0;
+                }
+                .content-grid {
+                    grid-template-columns: 1fr;
+                    gap: 36px;
+                    padding-top: 28px;
+                }
+                .sidebar {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 22px;
+                }
+                .sidebar section {
+                    margin: 0;
+                }
+                .terminal {
+                    align-self: start;
+                }
+            }
+
+            @media (max-width: 460px) {
+                .container {
+                    width: min(100% - 30px, 420px);
+                }
+                .brand {
+                    font-size: 11px;
+                }
+                .header-right {
+                    gap: 0;
+                }
+                .main-nav {
+                    gap: 12px;
+                }
+                .main-nav a {
+                    font-size: 11px;
+                }
+                .main-nav a:last-child {
+                    display: none;
+                }
+                .hero {
+                    padding-top: 32px;
+                }
+                .intro {
+                    font-size: 14px;
+                }
+                .section-heading {
+                    align-items: center;
+                }
+                h2 {
+                    font-size: 23px;
+                }
+                .post h3 {
+                    font-size: 18px;
+                }
+                .post p {
+                    font-size: 13px;
+                }
+                .sidebar {
+                    grid-template-columns: 1fr;
+                }
+                .footer-inner {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding-block: 18px;
+                }
+                .footer-nav {
+                    gap: 14px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                html {
+                    scroll-behavior: auto;
+                }
+                *,
+                *::before,
+                *::after {
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <a class="brand" href="#" aria-label="Zoran Topic home">Zoran Topic</a>
+                <div class="header-right">
+                    <nav class="main-nav" aria-label="Main navigation">
+                        <a href="#" aria-current="page">Home</a>
+                        <a href="#posts">Posts</a>
+                        <a href="#about">About</a>
+                        <a href="#admin">Admin</a>
+                    </nav>
+                    <div class="theme-toggle" aria-label="Dark theme">
+                        <span aria-hidden="true">☼</span><span aria-hidden="true">·</span
+                        ><span class="moon" aria-hidden="true">◔</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="hero" aria-labelledby="hero-title">
+                <div>
+                    <p class="eyebrow">Welcome</p>
+                    <h1 id="hero-title">Writing about code, ideas and the world<span class="accent-dot">.</span></h1>
+                    <p class="intro">
+                        I'm a developer and lifelong learner. This is my personal space for sharing thoughts, notes and
+                        experiments about web development, technology, history and whatever else catches my interest.
+                    </p>
+                </div>
+                <p class="hero-note">Better questions lead to better solutions.</p>
+            </section>
+
+            <div class="content-grid">
+                <section id="posts" aria-labelledby="posts-title">
+                    <div class="section-heading">
+                        <h2 id="posts-title">Latest posts</h2>
+                        <a class="text-link" href="#posts">View all posts →</a>
+                    </div>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-10-24">Oct 24, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Web development</span><span class="meta-dot">•</span
+                            ><span>◷ 8 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">Understanding the modern web rendering landscape</a></h3>
+                            <a
+                                class="post-arrow"
+                                href="#"
+                                aria-label="Read Understanding the modern web rendering landscape"
+                                >→</a
+                            >
+                        </div>
+                        <p>
+                            A practical look at the differences between SSR, CSR and hybrid rendering, and when to use
+                            each approach.
+                        </p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-10-12">Oct 12, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Learning</span><span class="meta-dot">•</span
+                            ><span>◷ 6 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">Notes on learning by building</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read Notes on learning by building">→</a>
+                        </div>
+                        <p>
+                            Why small, focused projects are the most effective way to build real skills and confidence
+                            as a developer.
+                        </p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-09-28">Sep 28, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Technology</span><span class="meta-dot">•</span
+                            ><span>◷ 7 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">A few thoughts on open source</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read A few thoughts on open source">→</a>
+                        </div>
+                        <p>The value of open source goes far beyond code. It's a way of thinking, and a community.</p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-09-14">Sep 14, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Web development</span><span class="meta-dot">•</span
+                            ><span>◷ 5 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">Building a better developer experience</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read Building a better developer experience"
+                                >→</a
+                            >
+                        </div>
+                        <p>
+                            Small improvements in tooling, structure and workflow can have a big impact on productivity
+                            and focus.
+                        </p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-08-31">Aug 31, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Ideas</span><span class="meta-dot">•</span
+                            ><span>◷ 9 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">The importance of slow thinking</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read The importance of slow thinking">→</a>
+                        </div>
+                        <p>
+                            In a world of constant information, deliberate thinking helps us make better decisions and
+                            build a deeper understanding.
+                        </p>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">
+                            <time datetime="2026-08-17">Aug 17, 2026</time><span class="meta-dot">•</span
+                            ><span class="post-category">Technology</span><span class="meta-dot">•</span
+                            ><span>◷ 6 min read</span>
+                        </div>
+                        <div class="post-title-row">
+                            <h3><a href="#">How I set up my development environment</a></h3>
+                            <a class="post-arrow" href="#" aria-label="Read How I set up my development environment"
+                                >→</a
+                            >
+                        </div>
+                        <p>
+                            A simple, reliable setup that works across projects, from local development to production.
+                        </p>
+                    </article>
+                </section>
+
+                <aside class="sidebar" aria-label="About and topics">
+                    <section id="about">
+                        <h2>About me</h2>
+                        <p>
+                            I'm Zoran, a self-taught developer with a passion for building useful things, exploring new
+                            ideas and learning every day.
+                        </p>
+                        <a class="text-link" href="#about">Read more →</a>
+                    </section>
+
+                    <section>
+                        <h2>Categories</h2>
+                        <ul class="category-list">
+                            <li>
+                                <a href="#posts"><span>Web development</span><span>12</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Technology</span><span>8</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Learning</span><span>6</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Ideas</span><span>5</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>History</span><span>3</span></a>
+                            </li>
+                            <li>
+                                <a href="#posts"><span>Personal</span><span>2</span></a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Tags</h2>
+                        <div class="tags" aria-label="Popular tags">
+                            <a class="tag" href="#posts">javascript</a>
+                            <a class="tag" href="#posts">css</a>
+                            <a class="tag" href="#posts">astro</a>
+                            <a class="tag" href="#posts">nodejs</a>
+                            <a class="tag" href="#posts">react</a>
+                            <a class="tag" href="#posts">mongodb</a>
+                            <a class="tag" href="#posts">productivity</a>
+                            <a class="tag" href="#posts">reading</a>
+                            <a class="tag" href="#posts">philosophy</a>
+                            <a class="tag" href="#posts">history</a>
+                        </div>
+                    </section>
+
+                    <div class="terminal" id="admin">
+                        <span class="terminal-mark">&gt;_</span>
+                        <p>Build something you're proud of.</p>
+                        <div class="terminal-line"></div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <a class="footer-brand" href="#">Zoran Topic</a>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="#">Home</a>
+                    <a href="#posts">Posts</a>
+                    <a href="#about">About</a>
+                    <a href="#admin">Admin</a>
+                    <span class="footer-icons">
+                        <a href="#rss" aria-label="RSS feed">◔</a>
+                        <a href="https://github.com/" aria-label="GitHub">⌘</a>
+                    </span>
+                </nav>
+            </div>
+        </footer>
+    </body>
+</html>

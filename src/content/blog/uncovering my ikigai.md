@@ -4,7 +4,8 @@ description: ''
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: '/src/assets/thumbnails/uncovering-ikigai.webp'
-tags: []
+tags: ['personal', 'career', 'psychology']
+category: 'career'
 draft: true
 ---
 

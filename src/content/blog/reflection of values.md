@@ -4,7 +4,8 @@ description: ''
 pubDate: 'Jul 08 2022'
 heroImage: ''
 thumbnail: ''
-tags: []
+tags: ['philosophy', 'personal']
+category: 'personal'
 draft: true
 ---
 
