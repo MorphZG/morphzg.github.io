@@ -144,6 +144,8 @@ a {
 }
 
 .post-card {
+    display: flex;
+    flex-direction: column;
     font-family: var(--mono-space);
     padding: 22px;
     box-shadow: var(--shadow);
@@ -159,11 +161,18 @@ a {
 
 .post-eyebrow {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
     color: var(--accent-strong);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.post-card .post-eyebrow p {
+    color: inherit;
 }
 
 .post-card h3 {

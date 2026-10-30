@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PostlistLayout from "../../layouts/PostlistLayout.astro";
+import PostCard from "../../components/PostCard.astro";
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => {
@@ -16,31 +17,7 @@ posts.sort((a, b) => {
 
         <main class="post-grid">
             {
-                posts.map((post) => {
-                    const slug = post.id.replace(/\.(md|mdx)$/i, "");
-                    return (
-                        <article class="post-card">
-                            <div class="post-eyebrow">
-                                <p class="post-date">
-                                    {post.data.pubDate.toLocaleDateString(
-                                        "en-UK",
-                                        {
-                                            month: "short",
-                                            day: "numeric",
-                                            year: "numeric",
-                                        },
-                                    )}
-                                </p>
-                                <p class="post-read-time">10min</p>
-                                <p class="post-category">webdev</p>
-                            </div>
-                            <h3>
-                                <a href={`/posts/${slug}`}>{post.data.title}</a>
-                            </h3>
-                            <p>{post.data.description}</p>
-                        </article>
-                    );
-                })
+                posts.map((post) => <PostCard post={post} />)
             }
         </main>
     </section>

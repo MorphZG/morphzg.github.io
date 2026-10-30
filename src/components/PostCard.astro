@@ -1,0 +1,27 @@
+---
+const { post } = Astro.props;
+const slug = post.id.replace(/\.(md|mdx)$/i, "");
+const date = post.data.pubDate.toLocaleDateString("en-UK", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+});
+
+const wordsPerMinute = 200;
+const wordCount = post.body.trim().split(/\s+/).length;
+const readTime = Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+---
+
+<article class="post-card">
+    <div class="post-eyebrow">
+        <p class="post-date">
+            <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+        </p>
+        <p class="post-category">{post.data.category}</p>
+        <p class="post-read-time">{readTime} min read</p>
+    </div>
+    <h3>
+        <a href={`/posts/${slug}`}>{post.data.title}</a>
+    </h3>
+    <p class="post-description">{post.data.description}</p>
+</article>

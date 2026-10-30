@@ -1,25 +1,20 @@
 ---
-import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
 import PublishForm from "../../components/PublishForm.astro"
----
 
+---
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
-        <div class="page-shell">
-            <header class="topbar">
-                <div class="brand">Blog Publisher</div>
-                <nav class="nav">
-                    <a href="/">Home</a>
-                </nav>
-            </header>
-			<PublishForm />
+        <Header/>
+        <main id="top" class="page-shell">
 
-        </div>
+            <PublishForm />
+
+        </main>
     </body>
 </html>
