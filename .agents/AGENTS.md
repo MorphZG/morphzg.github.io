@@ -83,9 +83,63 @@ For Astro-specific implementation details, consult the official docs:
 - <https://docs.astro.build/en/guides/routing/>
 - <https://docs.astro.build/en/guides/styling/>
 
-## Experience and tone
+## 1. General Style and Design Guidelines
 
-The visual mood should feel mellow, cozy, and easy on the eyes. Use a restrained, harmonious color palette, clear typography, and generous breathing room. Keep navigation straightforward and make reading comfortable on both small and large screens. Avoid visual treatments that compete with the writing.
+- Keep the site calm, editorial, and focused on reading. Content should remain the visual priority; avoid decoration that competes with it.
+- Use a restrained dark palette with readable foreground and muted text colors. Teal is the primary accent; reserve it for links, categories, focus indicators, and small highlights.
+- Maintain a clear type hierarchy: sans-serif for body copy, serif for editorial headings, and monospace for compact metadata and utility labels.
+- Use generous, consistent whitespace and a centered, readable content width. Keep navigation straightforward and layouts uncluttered.
+- Make every page work at desktop, tablet, and mobile widths. Reflow content rather than allowing horizontal overflow or shrinking text until it is difficult to read.
+- Preserve accessible contrast, semantic structure, descriptive links, and visible keyboard focus. Do not rely on color alone to communicate state.
+- Keep interactions subtle and consistent. Respect reduced-motion preferences and do not hide essential content or navigation just to fit a narrow screen.
+- When changing the visual design, follow the existing site styles and the homepage design proposal unless the task explicitly asks for a different direction.
+
+## 2. Technical CSS Guidelines
+
+### Layout and display
+
+- Use CSS Grid for two-dimensional page structures, such as the hero and post/sidebar columns. Use Flexbox for one-dimensional alignment, navigation, metadata rows, and wrapping groups.
+- Prefer `gap` for spacing between flex and grid children. Use margin for an element's relationship to surrounding content and padding for space inside its boundary; reset browser-default heading and paragraph margins where needed.
+- Center the main content in a fluid container capped around `918px`, with comfortable side gutters. Use `minmax(0, ...)` for grid tracks and `min-width: 0` where long content could force overflow.
+- Keep desktop columns balanced and readable. Collapse multi-column layouts into a single column on small screens; use additional columns for sidebar content only when they remain comfortable to scan.
+- Use normal document flow by default. Avoid absolute or fixed positioning for primary layout; reserve it for small decorative details that do not affect reading or interaction.
+
+### Spacing, borders, and surfaces
+
+- Use the spacing and proportions established by the homepage: generous hero spacing, compact metadata, and clear separation between posts and sections.
+- Prefer restrained, thin borders using the shared border color to separate content. Avoid bright borders, heavy shadows, and unnecessary card outlines.
+- Use the shared panel and shadow tokens only when a surface needs distinct emphasis; keep the default post list editorial and lightweight.
+- Use rounded corners sparingly for controls or small labels, not as a default treatment for every section.
+
+### Color and themes
+
+- Use the CSS custom properties defined in `src/styles/global.css` for shared colors, typography, and other design tokens instead of repeating literal values.
+- Keep text, muted text, borders, and accents distinguishable in every supported theme. When adding a shared token, keep theme variants in sync where those variants are used.
+- Do not use color as the only indication of hover, focus, selection, or status; retain another visible cue such as an underline, outline, or shape.
+
+### Typography
+
+- Use the system sans-serif stack for body copy, Newsreader (or the configured serif token) for headings, and Inconsolata (or the configured monospace token) for metadata and utility text.
+- Keep body copy comfortable to read: approximately `15px` with a line-height near `1.6`. Use muted text for secondary descriptions, not for important content that needs high contrast.
+- Establish hierarchy with size, weight, and spacing. Use uppercase and letter spacing for short labels only, not paragraphs or long navigation labels.
+- Use a restrained heading line-height and modest negative letter spacing for large editorial headings. Use `clamp()` for fluid display sizes when it improves scaling across screen widths.
+- Set explicit font-family and weight for headings when browser defaults would break the intended serif/sans hierarchy.
+
+### Responsive behavior and accessibility
+
+- Follow the existing `720px` and `460px` breakpoints when they fit; add a breakpoint only when the layout needs a real change, not to target a specific device.
+- Test narrow widths for overflowing headings, metadata, navigation, and long words. Allow metadata to wrap and keep grid children shrinkable.
+- Keep essential links and controls available on mobile. If space is limited, reflow them or provide an accessible alternative instead of silently removing functionality.
+- Provide visible `:focus-visible` styles with sufficient contrast and offset. Keep hover styles from changing layout or making controls jump.
+- Use short transitions for color or other subtle feedback. Include a reduced-motion rule for animated or smoothly scrolling behavior.
+
+### CSS organization and maintainability
+
+- Put shared tokens, resets, and site-wide component styles in `src/styles/global.css`; keep styles local to an Astro component when they are truly specific to that component.
+- Reuse the existing class names and markup structure. If a design requires new structure or behavior, update the Astro component intentionally rather than relying on brittle selectors.
+- Prefer class-based selectors with low specificity. Avoid styling by element position, long selector chains, or IDs when a component class is appropriate.
+- Group responsive overrides with the component rules they affect or in clearly organized media queries. Avoid duplicate declarations and overrides that fight earlier rules.
+- Keep CSS changes focused; do not introduce a framework, dependency, or broad restyle for a small visual adjustment.
 
 ## Core needs
 

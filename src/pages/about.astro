@@ -1,10 +1,9 @@
 ---
-import { Content as AboutMe, frontmatter } from '../content/about-me.md';
+import { Content, frontmatter } from '../content/about-me.md';
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import HeroSection from '../components/HeroSection.astro';
-
 ---
 <html lang="en">
     <head>
@@ -16,7 +15,7 @@ import HeroSection from '../components/HeroSection.astro';
 
             <HeroSection eyebrow="welcome" title="Tell me something about yourself." />
 
-            <AboutMe />
+            <Content />
             
         </main>
     </body>
