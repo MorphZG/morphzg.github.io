@@ -24,16 +24,16 @@ const date = pubDate.toLocaleDateString("en-UK", {
 ---
 
 <PostSingleLayout>
-    <article class="post-card">
         <div class="post-eyebrow">
             <p class="post-date">
                 <time datetime={post.data.pubDate.toISOString()}>{date}</time>
             </p>
             <p class="post-category">{category}</p>
         </div>
+
         <h1>{title}</h1>
+
         {thumbnail && <Image src={thumbnail} alt={title} />}
-        <p class="post-description">{description}</p>
+
         <Content />
-    </article>
 </PostSingleLayout>

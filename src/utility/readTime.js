@@ -1,10 +1,11 @@
+export default function calcReadTime(inputText) {
+
 const wordsPerMinute = 200;
 
-// Get the post content and count words
-const wordCount = post.body
+const wordCount = inputText
     .trim()
     .split(/\s+/)
     .length;
 
-// Calculate reading time
-const readTime = Math.ceil(wordCount / wordsPerMinute);
+return (Math.ceil(wordCount / wordsPerMinute));
+}

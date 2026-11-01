@@ -1,4 +1,5 @@
 ---
+import calcReadTime from "../utility/readTime";
 const { post } = Astro.props;
 const slug = post.id.replace(/\.(md|mdx)$/i, "");
 const date = post.data.pubDate.toLocaleDateString("en-UK", {
@@ -7,9 +8,7 @@ const date = post.data.pubDate.toLocaleDateString("en-UK", {
     year: "numeric",
 });
 
-const wordsPerMinute = 200;
-const wordCount = post.body.trim().split(/\s+/).length;
-const readTime = Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+const readTime = calcReadTime(post.body)
 ---
 
 <article class="post-card">

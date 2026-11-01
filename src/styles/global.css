@@ -40,15 +40,12 @@ a {
 
 .page-shell {
     max-width: 75%;
-    margin: auto auto;
+    margin: auto;
     padding: 1rem;
 }
 
 .topbar {
     display: block;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
     padding: 20px 10%;
     border-bottom: 1px solid var(--border);
 }
@@ -87,7 +84,7 @@ a {
 
 .hero {
     display: flex;
-    padding: 100px 0 100px;
+    padding: 100px 0;
     margin: auto;
     border-bottom: 1px solid var(--border);
 }
@@ -146,16 +143,12 @@ a {
 .post-card {
     display: flex;
     flex-direction: column;
-    font-family: var(--mono-space);
     padding: 22px;
     box-shadow: var(--shadow);
     border-bottom: 1px solid var(--border);
 
     &.wide {
         margin: 10px;
-    }
-    h3 {
-        font-family: var(--serif);
     }
 }
 
@@ -176,6 +169,7 @@ a {
 }
 
 .post-card h3 {
+    font-family: var(--serif);
     margin: 0 0 10px;
     font-size: 1.5rem;
     line-height: 1.2;
@@ -193,9 +187,4 @@ header a:hover {
 .post-card p {
     margin: 0;
     color: var(--muted);
-}
-
-Content {
-    font-family: var(--serif);
-    color: green;
 }
