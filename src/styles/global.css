@@ -195,6 +195,7 @@ header a:hover {
     color: var(--muted);
 }
 
-article {
+Content {
     font-family: var(--serif);
+    color: green;
 }
