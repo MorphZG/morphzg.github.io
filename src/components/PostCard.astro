@@ -14,10 +14,10 @@ const readTime = calcReadTime(post.body)
 <article class="post-card">
     <div class="post-eyebrow">
         <p class="post-date">
-            <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+            <time datetime={post.data.pubDate.toISOString()}>{date} - </time>
         </p>
-        <p class="post-category">{post.data.category}</p>
-        <p class="post-read-time">{readTime} min read</p>
+        <p class="post-category">{post.data.category} - </p>
+        <p class="post-read-time">{readTime} min read - </p>
     </div>
     <h3>
         <a href={`/posts/${slug}`}>{post.data.title}</a>
