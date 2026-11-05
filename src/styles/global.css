@@ -97,8 +97,7 @@ a:focus-visible {
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(210px, 0.75fr);
+    display: flex;
     align-items: center;
     gap: 48px;
     padding-block: 48px 54px;
@@ -106,10 +105,13 @@ a:focus-visible {
 }
 
 .hero-group-left {
+    flex: 1.7 1 0;
     min-width: 0;
 }
 
 .hero-group-right {
+    flex: 0.75 1 0;
+    min-width: 210px;
     border-left: 1px solid var(--border);
     margin: 0;
     padding: 8px 0 7px 20px;
@@ -159,7 +161,13 @@ a:focus-visible {
 }
 
 .posts {
+    flex: 2 1 0;
     min-width: 0;
+}
+
+.post-grid-container > aside {
+    flex: 0.92 1 0;
+    min-width: 220px;
 }
 
 .posts h1 {
@@ -175,8 +183,7 @@ a:focus-visible {
 }
 
 .post-grid-container {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(220px, 0.92fr);
+    display: flex;
     gap: 54px;
     padding-top: 34px;
 }
@@ -262,9 +269,19 @@ a:focus-visible {
     }
 
     .hero {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         gap: 18px;
         padding-block: 38px 34px;
+    }
+
+    .hero-group-left,
+    .hero-group-right {
+        flex: 0 1 auto;
+    }
+
+    .hero-group-right {
+        min-width: 0;
     }
 
     .hero h1 {
@@ -277,15 +294,25 @@ a:focus-visible {
     }
 
     .post-grid-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 36px;
         padding-top: 28px;
     }
 
     .post-grid-container > aside {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
+        flex: 0 1 auto;
+        flex-wrap: wrap;
+        min-width: 0;
         gap: 22px;
+    }
+
+    .post-grid-container > aside .side-box {
+        flex: 0 0 calc((100% - 22px) / 2);
+    }
+
+    .posts {
+        flex: 0 1 auto;
     }
 
     .post-grid-container > aside .side-box {
@@ -344,6 +371,10 @@ a:focus-visible {
     }
 
     .post-grid-container > aside {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .post-grid-container > aside .side-box {
+        flex-basis: 100%;
     }
 }
