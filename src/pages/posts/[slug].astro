@@ -21,7 +21,6 @@ const date = pubDate.toLocaleDateString("en-UK", {
     year: "numeric",
 });
 const { minutesRead } = remarkPluginFrontmatter;
-console.log(tags);
 ---
 
 <PostSingleLayout>
@@ -32,9 +31,15 @@ console.log(tags);
         <p class="post-category">{category}</p>
         <p class="post-read-time">{minutesRead}</p>
     </div>
-    <p class="tag">
-        {tags}
-    </p>
+    {
+        tags?.map((tag) => {
+            return (
+                <a class="tag" href={`/tags/${tag}`}>
+                    {tag}
+                </a>
+            );
+        })
+    }
     <h1>{title}</h1>
 
     {thumbnail && <Image src={thumbnail} alt={title} />}
@@ -46,10 +51,13 @@ console.log(tags);
     .tag {
         font-family: var(--mono-space);
         padding: 0 1rem;
+        border: 1px solid #263244;
+        border-radius: 999px;
         background-color: var(--bg);
         color: var(--faint);
         text-decoration: none;
         font-size: 17px;
+        line-height: 1.5;
     }
 
     .tag:hover {
@@ -58,4 +66,5 @@ console.log(tags);
     .tag::before {
         content: "#";
     }
+
 </style>

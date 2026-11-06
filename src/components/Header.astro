@@ -12,18 +12,8 @@
             <a href="/publish">_admin</a>
         </nav>
         <div class="theme-selection">
-            <button
-                id="theme-light-btn"
-                onclick="setTheme('light')"
-                title="Light Mode"
-                >L
-            </button>
-            <button
-                id="theme-dark-btn"
-                onclick="setTheme('dark')"
-                title="Dark Mode"
-                >D
-            </button>
+            <button id="theme-light-btn" onclick="setTheme('light')" title="Light Mode">L </button>
+            <button id="theme-dark-btn" onclick="setTheme('dark')" title="Dark Mode">D </button>
         </div>
     </div>
 </header>
@@ -34,8 +24,47 @@
         color: var(--muted);
         border-radius: 50%;
     }
+
     button:hover {
         background-color: var(--accent);
         color: var(--accent);
+    }
+
+    .topbar {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding-inline: max(24px, calc((100% - 918px) / 2));
+        border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-left#brand {
+        font-family: var(--mono-space);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .nav-main {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .theme-selection {
+        display: flex;
+        gap: 0.5rem;
     }
 </style>
