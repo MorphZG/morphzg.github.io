@@ -20,13 +20,3 @@ Driven to explore the technolgy around me but also express the thoughts and new 
 Fun Fact: I often find fun in tasks others consider boring. My urge to analyse and understand is never ending endeavour.
 Current Focus: Level up my webdev and design skills with React and CSS.
 Goal: Solve the puzzle of life.
-
-## Connect with Me  
-
-- [Blog](https://dev.to/morphzg)  
-- [GitHub](https://github.com/MorphZG)  
-- [LinkedIn](https://www.linkedin.com/in/zorantopic)  
-- [CV](https://github.com/MorphZG/MorphZG/blob/main/assets/CV_europass_IT%202024v1b.pdf)
-
-
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)
