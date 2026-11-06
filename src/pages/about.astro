@@ -1,22 +1,52 @@
 ---
-import { Content, frontmatter } from '../content/about-me.md';
+import { Content, frontmatter } from "../content/about-me.md";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import HeroSection from '../components/HeroSection.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import HeroSection from "../components/HeroSection.astro";
 ---
+
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
-        <Header/>
+        <Header />
         <main id="top" class="page-shell">
-
             <HeroSection eyebrow="welcome" title="Tell me something about yourself." />
 
             <Content />
-            
+
+            <footer>
+                <h2>Connect with Me</h2>
+                <nav>
+                    <ul>
+                        <li><a href="https://dev.to/morphzg">Blog</a></li>
+                        <li><a href="https://www.github.com/MorphZG">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/zorantopic">LinkedIn</a></li>
+                        <li><a href="/download/CV_europass_2027v1.pdf">Check out my CV</a></li>
+                    </ul>
+                </nav>
+                <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" />
+            </footer>
         </main>
     </body>
 </html>
+<style>
+    main {
+        color: var(--text);
+    }
+    h2 {
+        font-family: var(--serif);
+    }
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        max-width: 50%;
+    }
+
+    li {
+        text-align: left;
+    }
+</style>
