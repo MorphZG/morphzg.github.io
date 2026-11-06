@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
 import TagList from "../components/TagList.astro";
+import CategoryList from "../components/CategoryList.astro";
 ---
 
 <html lang="en">
@@ -15,11 +16,12 @@ import TagList from "../components/TagList.astro";
         <main id="top" class="page-shell">
             <HeroSection eyebrow="Welcome" title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
-            <div class="post-grid-container">
+            <div class="base-grid-container">
                 <slot />
                 <aside>
                     <section class="side-box categories">
                         <h3>Categories</h3>
+                        <CategoryList />
                     </section>
                     <section class="side-box tags">
                         <h3>Tags</h3>

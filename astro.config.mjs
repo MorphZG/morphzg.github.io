@@ -1,8 +1,10 @@
 // @ts-check
 
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
+import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
+import { remarkReadingTime } from "./src/utility/remark-reading-time.mjs";
 
 import react from "@astrojs/react";
 
@@ -12,6 +14,11 @@ export default defineConfig({
     site: "https://morphzg.github.io",
     base: "/",
     integrations: [mdx(), sitemap(), react()],
+    markdown: {
+        processor: unified({
+            remarkPlugins: [remarkReadingTime],
+        })
+    },
     fonts: [
         {
             provider: fontProviders.google(),

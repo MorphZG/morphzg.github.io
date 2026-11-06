@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+// Define the static paths for every unique tag
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    // Extract all unique tags across all posts
+    const categories = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+
+    // Map each tag to a route and pass its filtered posts as props
+    return categories.map((category) => {
+        const filteredPosts = posts.filter((post) => post.data.category?.includes(category));
+
+        return {
+            params: { category: category.toLowerCase() },
+            props: { posts: filteredPosts, categories: category },
+        };
+    });
+}
+
+const { category } = Astro.params;
+const { posts, categories } = Astro.props;
+---
+
+<BaseLayout>
+    <main class="post-grid">
+        <section id="posts" class="posts">
+            <h1>Posts under "{category}" category</h1>
+            <p>Found {posts.length} {posts.length === 1 ? "post" : "posts"}</p>
+
+            {posts.map((post) => <PostCard post={post} />)}
+        </section>
+    </main>
+</BaseLayout>

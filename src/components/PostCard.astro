@@ -8,7 +8,7 @@ const date = post.data.pubDate.toLocaleDateString("en-UK", {
     year: "numeric",
 });
 
-const readTime = calcReadTime(post.body)
+const readTime = calcReadTime(post.body);
 ---
 
 <article class="post-card">
@@ -16,11 +16,53 @@ const readTime = calcReadTime(post.body)
         <p class="post-date">
             <time datetime={post.data.pubDate.toISOString()}>{date} - </time>
         </p>
-        <p class="post-category">{post.data.category} - </p>
-        <p class="post-read-time">{readTime} min read - </p>
+        <p class="post-category">{post.data.category} -</p>
+        <p class="post-read-time">{readTime} min read -</p>
     </div>
     <h3>
         <a href={`/posts/${slug}`}>{post.data.title}</a>
     </h3>
     <p class="post-description">{post.data.description}</p>
 </article>
+<style>
+    .post-card {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 18px;
+        margin-bottom: 17px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .post-eyebrow {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 4px;
+        color: var(--faint);
+        font-family: var(--mono-space);
+        font-size: var(--font-s);
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+    }
+
+    .post-category {
+        color: var(--accent);
+    }
+
+    .post-card h3 {
+        font-family: var(--serif);
+        margin: 0 0 7px;
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 400;
+    }
+
+    .post-description {
+        margin: 0;
+        color: var(--muted);
+        font-size: var(--font-m);
+        line-height: 1.5;
+    }
+</style>

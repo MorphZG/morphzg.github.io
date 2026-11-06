@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from "astro:content";
+
+const { post } = Astro.props;
+const posts = await getCollection("blog");
+const categories = [...new Set(posts.flatMap((post) => post.data.category ?? []))];
+---
+
+<div class="category-list">
+    {
+        categories.map((category) => {
+            return (
+                <a class="category" href={`/categories/${category}`}>
+                    <span>{category}</span>
+                    <span>"14"</span>
+                </a>
+            );
+        })
+    }
+</div>
+<style>
+    .category-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--mono-space);
+        padding: 0 1rem;
+        background-color: var(--bg);
+        color: var(--faint);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .category:hover {
+        color: var(--accent);
+    }
+</style>

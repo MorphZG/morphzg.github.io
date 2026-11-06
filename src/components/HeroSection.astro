@@ -2,7 +2,7 @@
 const {
     eyebrow = "Welcome",
     title = "Writing by Me",
-    description = "From a vast fields of cyberspace, somewhere far away from everything. We got a signal! Shall we respond or stay quiet?"
+    description = "From a vast fields of cyberspace, somewhere far away from everything. We got a signal! Shall we respond or stay quiet?",
 } = Astro.props;
 ---
 
@@ -16,3 +16,75 @@ const {
         <p>Better questions lead to better solutions</p>
     </div>
 </section>
+
+<style>
+    .hero {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        padding-block: 48px 54px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .hero-group-left {
+        flex: 1.7 1 0;
+        min-width: 0;
+    }
+
+    .hero-group-right {
+        flex: 0.75 1 0;
+        min-width: 210px;
+        border-left: 1px solid var(--border);
+        margin: 0;
+        padding: 8px 0 7px 20px;
+        font-family: var(--mono-space);
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .hero-group-right p {
+        margin: 0;
+    }
+
+    .hero-group-right::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin-top: 10px;
+        background: var(--accent);
+        content: "";
+    }
+
+    .hero-eyebrow {
+        margin: 0 0 6px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+    }
+
+    .hero h1 {
+        max-width: 610px;
+        margin: 0 0 22px;
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 4.2vw, 2.65rem);
+        font-weight: 400;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+    }
+    
+    .hero h1::after {
+        content: " .";
+        color: var(--accent);
+        font-size: 2rem;
+    }
+
+    .hero-lede {
+        max-width: 570px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 15.5px;
+        line-height: 1.55;
+    }
+</style>

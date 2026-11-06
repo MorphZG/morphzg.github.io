@@ -3,6 +3,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
+import TagList from "../components/TagList.astro";
+import CategoryList from "../components/CategoryList.astro";
 ---
 
 <html lang="en">
@@ -20,13 +22,15 @@ import HeroSection from "../components/HeroSection.astro";
             <div class="post-grid-container">
                 <slot />
                 <aside>
-                    <section class="side-box">
+                    <section class="side-box categories">
                         <h3>Categories</h3>
+                        <CategoryList />
                     </section>
-                    <section class="side-box">
+                    <section class="side-box tags">
                         <h3>Tags</h3>
+                        <TagList />
                     </section>
-                    <section class="side-box">
+                    <section class="side-box infobox">
                         <p>infobox</p>
                     </section>
                 </aside>
