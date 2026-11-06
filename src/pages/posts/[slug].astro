@@ -1,0 +1,61 @@
+---
+import PostSingleLayout from "../../layouts/PostSingleLayout.astro";
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+
+// creates dynamic paths for each filename.md in a collection directory
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.id.replace(/\.(md|mdx)$/i, "") },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, category, thumbnail, heroImage, tags } = post.data;
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+const date = pubDate.toLocaleDateString("en-UK", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+});
+const { minutesRead } = remarkPluginFrontmatter;
+console.log(tags);
+---
+
+<PostSingleLayout>
+    <div class="post-eyebrow">
+        <p class="post-date">
+            <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+        </p>
+        <p class="post-category">{category}</p>
+        <p class="post-read-time">{minutesRead}</p>
+    </div>
+    <p class="tag">
+        {tags}
+    </p>
+    <h1>{title}</h1>
+
+    {thumbnail && <Image src={thumbnail} alt={title} />}
+
+    <Content />
+</PostSingleLayout>
+
+<style>
+    .tag {
+        font-family: var(--mono-space);
+        padding: 0 1rem;
+        background-color: var(--bg);
+        color: var(--faint);
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .tag:hover {
+        color: var(--accent);
+    }
+    .tag::before {
+        content: "#";
+    }
+</style>
