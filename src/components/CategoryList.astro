@@ -1,24 +1,24 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import { categoryCount } from "../utility/categoryCount"
 
-const { post } = Astro.props;
 const posts = await getCollection("blog");
-const categories = [...new Set(posts.flatMap((post) => post.data.category ?? []))];
+const categories = categoryCount(posts);
 ---
 
 <h3>Categories</h3>
+
 <div class="category-list">
     {
-        categories.map((category) => {
-            return (
-                <a class="category" href={`/categories/${category}`}>
-                    <span>{category}</span>
-                    <span>"14"</span>
-                </a>
-            );
-        })
+        [...categories].map(([category, count]) => (
+            <a class="category" href={`/categories/${category}`}>
+                <span>{category}</span>
+                <span>{count}</span>
+            </a>
+        ))
     }
 </div>
+
 <style>
     .category-list {
         display: flex;
@@ -29,11 +29,11 @@ const categories = [...new Set(posts.flatMap((post) => post.data.category ?? [])
         display: flex;
         justify-content: space-between;
         font-family: var(--mono-space);
+        font-size: var(--font-m);
         padding: 0;
         background-color: var(--bg);
         color: var(--faint);
         text-decoration: none;
-        font-size: 17px;
     }
     .category:hover {
         color: var(--accent);
