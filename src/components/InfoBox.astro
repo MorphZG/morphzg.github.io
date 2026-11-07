@@ -1,0 +1,18 @@
+---
+const { textContent, title, link } = Astro.props;
+---
+
+<h3>{title}</h3>
+<p>{textContent}</p>
+<a href={link}>Read more...</a>
+
+<style>
+    p {
+        color: var(--muted);
+        font-size: var(--font-s);
+    }
+    a {
+        color: var(--accent);
+        font-size: var(--font-s);
+    }
+</style>

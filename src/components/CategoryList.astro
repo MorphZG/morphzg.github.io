@@ -6,6 +6,7 @@ const posts = await getCollection("blog");
 const categories = [...new Set(posts.flatMap((post) => post.data.category ?? []))];
 ---
 
+<h3>Categories</h3>
 <div class="category-list">
     {
         categories.map((category) => {
@@ -27,9 +28,8 @@ const categories = [...new Set(posts.flatMap((post) => post.data.category ?? [])
     .category {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         font-family: var(--mono-space);
-        padding: 0 1rem;
+        padding: 0;
         background-color: var(--bg);
         color: var(--faint);
         text-decoration: none;

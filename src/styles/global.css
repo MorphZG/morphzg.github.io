@@ -1,3 +1,5 @@
+@import "./mobile.css";
+
 :root {
     --bg: #0b1017;
     --panel: #0e141d;
@@ -25,13 +27,17 @@ html {
     scroll-behavior: smooth;
 }
 
+h1, h2, h3 {
+    font-family: var(--serif);
+}
+
 body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: var(--font-m);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -82,137 +88,4 @@ a:focus-visible {
     font-family: var(--serif);
     margin-bottom: 10px;
     font-size: 17px;
-}
-
-@media (max-width: 720px) {
-    .page-shell {
-        width: min(100% - 36px, 560px);
-    }
-
-    .topbar {
-        min-height: 62px;
-        padding-inline: 18px;
-    }
-
-    .topbar-right {
-        gap: 15px;
-    }
-
-    .nav-main {
-        gap: 14px;
-    }
-
-    .theme-selection {
-        display: none;
-    }
-
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-        padding-block: 38px 34px;
-    }
-
-    .hero-group-left,
-    .hero-group-right {
-        flex: 0 1 auto;
-    }
-
-    .hero-group-right {
-        min-width: 0;
-    }
-
-    .hero h1 {
-        max-width: 540px;
-        font-size: clamp(2.2rem, 8vw, 2.8rem);
-    }
-
-    .hero-group-right {
-        max-width: 290px;
-    }
-
-    .post-grid-container {
-        flex-direction: column;
-        gap: 36px;
-        padding-top: 28px;
-    }
-
-    .post-grid-container > aside {
-        display: flex;
-        flex: 0 1 auto;
-        flex-wrap: wrap;
-        min-width: 0;
-        gap: 22px;
-    }
-
-    .post-grid-container > aside .side-box {
-        flex: 0 0 calc((100% - 22px) / 2);
-    }
-
-    .posts {
-        flex: 0 1 auto;
-    }
-
-    .post-grid-container > aside .side-box {
-        margin: 0;
-    }
-}
-
-@media (max-width: 460px) {
-    .page-shell {
-        width: min(100% - 30px, 420px);
-    }
-
-    .topbar {
-        gap: 12px;
-        padding-inline: 15px;
-    }
-
-    .topbar-left#brand {
-        font-size: 11px;
-    }
-
-    .topbar-right {
-        gap: 0;
-    }
-
-    .nav-main {
-        gap: 12px;
-    }
-
-    .nav-main a {
-        font-size: 11px;
-    }
-
-    .nav-main a:last-child {
-        display: none;
-    }
-
-    .hero {
-        padding-top: 32px;
-    }
-
-    .hero-lede {
-        font-size: 14px;
-    }
-
-    .posts h1 {
-        font-size: 23px;
-    }
-
-    .post-card h3 {
-        font-size: 18px;
-    }
-
-    .post-card p {
-        font-size: 13px;
-    }
-
-    .post-grid-container > aside {
-        flex-direction: column;
-    }
-
-    .post-grid-container > aside .side-box {
-        flex-basis: 100%;
-    }
 }
