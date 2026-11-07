@@ -5,6 +5,7 @@ const posts = await getCollection("blog");
 const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
 ---
 
+<h3>Tags</h3>
 <div class="tag-list">
     {
         tags.map((tag) => {
@@ -26,20 +27,16 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
 
     .tag {
         font-family: var(--mono-space);
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         border: 1px solid #263244;
-        border-radius: 999px;
+        border-radius: 10px;
         background-color: var(--bg);
         color: var(--faint);
         text-decoration: none;
-        font-size: 17px;
-        line-height: 1.5;
+        font-size: var(--font-m);
     }
 
     .tag:hover {
         color: var(--accent);
-    }
-    .tag::before {
-        content: "#";
     }
 </style>
