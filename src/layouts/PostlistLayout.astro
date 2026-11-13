@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import HeroSection from "../components/HeroSection.astro";
 import TagList from "../components/TagList.astro";
 import CategoryList from "../components/CategoryList.astro";
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 ---
 
 <html lang="en">
@@ -12,6 +13,10 @@ import CategoryList from "../components/CategoryList.astro";
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body>
+<!-- https://github.com/shishkin/astro-pagefind -->
+<PagefindConfig />
+<pagefind-searchbox></pagefind-searchbox>
+
         <Header />
         <main id="top" class="page-shell">
             <HeroSection
@@ -23,15 +28,10 @@ import CategoryList from "../components/CategoryList.astro";
                 <slot />
                 <aside>
                     <section class="side-box categories">
-                        <h3>Categories</h3>
                         <CategoryList />
                     </section>
                     <section class="side-box tags">
-                        <h3>Tags</h3>
                         <TagList />
-                    </section>
-                    <section class="side-box infobox">
-                        <p>infobox</p>
                     </section>
                 </aside>
             </div>
