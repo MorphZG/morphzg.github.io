@@ -56,7 +56,7 @@ const { minutesRead } = remarkPluginFrontmatter;
         background-color: var(--bg);
         color: var(--faint);
         text-decoration: none;
-        font-size: 17px;
+        font-size: var(--font-s);
         line-height: 1.5;
     }
 
@@ -64,7 +64,22 @@ const { minutesRead } = remarkPluginFrontmatter;
         color: var(--accent);
     }
     .tag::before {
+        padding: 0 0.1rem;
         content: "#";
     }
 
+    .post-category {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono-space);
+        font-size: var(--font-m);
+        padding: 0;
+        background-color: var(--bg);
+        color: var(--faint);
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .post-category:hover {
+        color: var(--accent);
+    }
 </style>

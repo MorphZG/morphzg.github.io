@@ -2,6 +2,7 @@
 import calcReadTime from "../utility/readTime";
 const { post } = Astro.props;
 const slug = post.id.replace(/\.(md|mdx)$/i, "");
+const tags = post.data.tags;
 const date = post.data.pubDate.toLocaleDateString("en-UK", {
     month: "short",
     day: "numeric",
@@ -9,6 +10,7 @@ const date = post.data.pubDate.toLocaleDateString("en-UK", {
 });
 
 const readTime = calcReadTime(post.body);
+const { Content, frontmatter } = post;
 ---
 
 <article class="post-card">
@@ -22,6 +24,11 @@ const readTime = calcReadTime(post.body);
     <h3>
         <a href={`/posts/${slug}`}>{post.data.title}</a>
     </h3>
+    <span>
+        {tags?.map((tag: string) => (
+            <a class="tag" href={`/tags/${tag}`}>{tag} </a>
+        ))}
+    </span>
     <p class="post-description">{post.data.description}</p>
 </article>
 <style>
@@ -64,4 +71,23 @@ const readTime = calcReadTime(post.body);
         font-size: var(--font-m);
         line-height: 1.5;
     }
+    .tag {
+        font-family: var(--mono-space);
+        padding: 0 0.5rem;
+        border: 1px solid #263244;
+        border-radius: 10px;
+        background-color: var(--bg);
+        color: var(--faint);
+        text-decoration: none;
+        font-size: var(--font-s);
+    }
+
+    .tag:hover {
+        color: var(--accent);
+    }
+    .tag::before {
+        padding: 0 0.1rem;
+        content: "#";
+    }
+
 </style>
