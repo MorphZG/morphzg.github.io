@@ -1,6 +1,6 @@
 ---
 title: 'Zoran Topic'
-description: 'Just a casual, simple person, nothing extraordinary at a first glance. But beneath the surface lies a unique and peculiar one. With his own experiences, desires, passions… Man can only hope there will be more good than bad ones.'
+description: "Each word is like pulling back a layer, exposing thoughts I didn’t even know I had. It's strange, really, how putting pen to paper or fingers to keyboard can bring out emotions you didn’t realise were hiding beneath the surface."
 pubDate: ''
 heroImage: ''
 thumbnail: ''
@@ -9,14 +9,12 @@ category: 'personal'
 draft: false
 ---
 
-Just a casual, simple person, nothing extraordinary at a first glance. But beneath the surface lies a unique and peculiar one. With his own experiences, desires, passions... Man can only hope there will be more good than bad ones.
+A simple guy, nothing special about him, not much different from the other regulars you see in public. But.... that's just on surface, inside, every single one of us is very special. Living through unique experiences that shapes who we are. First love, first disappointment, first school fight.... Very early in life we start to diverge in unimaginable ways from each other but still, somehow, we are drawn to other people with similar interests.
 
-I’m driven by curiosity, how those small and shinny little gadgets around us work. How they influence our desires and needs? That small piece of software you use daily, how does it run? Asking all those questions led me here so i can share the answers with anyone around me.
+I like to stay occupied, i enjoy being productive. Sometimes finding fun where others would get bored to death. That's the reason i write. I like writing.  Writing is more than just an escape or a way to pass the time. It's a reflection, a conversation with myself. Each word is like pulling back a layer, exposing thoughts I didn’t even know I had. It's strange, really, how putting pen to paper or fingers to keyboard can bring out emotions you didn’t realise were hiding beneath the surface.
 
-Solve problems not only as a simple day to day challenges, but more of a real and long term goals to help the real people facing their every day strugles and obstacles.
+I often think about the power of storytelling. How, with the right words, you can capture an entire moment, a fleeting feeling, or a lifetime of experiences. When I write, I'm not just telling a story; I'm weaving a piece of myself into it. Sometimes it's about people I've met, situations I've been in. Sometimes it's just pure imagination, creating worlds and characters that don’t exist, yet somehow feel more real than anything around me.
 
-Driven to explore the technolgy around me but also express the thoughts and new ideas. I have compiled a short list of blog posts but also short descriptions of repositories you can find around here.
+There’s something thrilling about it, like I’m both the creator and the observer. I write to understand, to make sense of the chaos that sometimes spins in my head. And if, by chance, my words resonate with someone else, if they read something I’ve written and feel even a fraction of what I felt while writing it than i did a good job.
 
-Fun Fact: I often find fun in tasks others consider boring. My urge to analyse and understand is never ending endeavour.
-Current Focus: Level up my webdev and design skills with React and CSS.
-Goal: Solve the puzzle of life.
+But that’s the thing about sharing your thoughts no matter how personal they feel, you never know who might connect with them
