@@ -15,12 +15,12 @@ import SearchBar from "../components/SearchBar.astro";
     <body>
         <Header />
         <main id="top" class="page-shell">
-            <SearchBar/>
             <HeroSection
                 eyebrow="Welcome"
                 title={SITE_TITLE}
                 description={SITE_DESCRIPTION}
             />
+            <SearchBar/>
             <div class="post-grid-container">
                 <slot />
                 <aside>
