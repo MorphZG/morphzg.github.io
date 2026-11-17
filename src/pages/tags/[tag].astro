@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostCard from "../../components/PostCard.astro";
+import PostlistLayout from "../../layouts/PostlistLayout.astro";
 
 // Define the static paths for every unique tag
 export async function getStaticPaths() {
@@ -25,7 +25,7 @@ const { tag } = Astro.params;
 const { posts, originalTag } = Astro.props;
 ---
 
-<BaseLayout>
+<PostlistLayout>
     <main class="post-grid">
         <section id="posts" class="posts">
             <h1>Posts tagged with "{originalTag}"</h1>
@@ -34,4 +34,4 @@ const { posts, originalTag } = Astro.props;
             {posts.map((post) => <PostCard post={post} />)}
         </section>
     </main>
-</BaseLayout>
+</PostlistLayout>

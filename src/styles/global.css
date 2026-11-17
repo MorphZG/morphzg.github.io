@@ -67,13 +67,21 @@ a:focus-visible {
     margin-inline: auto;
 }
 
-.base-grid-container {
+.base-grid-container,
+.postlist-grid-container {
     display: flex;
     gap: 54px;
     padding-top: 34px;
 }
 
-.base-grid-container > aside {
+.base-grid-container > :first-child,
+.postlist-grid-container > :first-child {
+    flex: 2 1 0;
+    min-width: 0;
+}
+
+.base-grid-container > aside,
+.postlist-grid-container > aside {
     flex: 0.92 1 0;
     min-width: 220px;
 }
