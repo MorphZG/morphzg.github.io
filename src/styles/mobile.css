@@ -3,46 +3,28 @@
         width: min(100% - 36px, 560px);
     }
 
-    .topbar {
-        min-height: 62px;
-        padding-inline: 18px;
-    }
-
-    .topbar-right {
-        gap: 15px;
-    }
-
-    .nav-main {
-        gap: 14px;
-    }
-
-    .theme-selection {
-        display: none;
-    }
-
     .hero {
         flex-direction: column;
-        align-items: center;
-        gap: 18px;
+        align-items: flex-start;
+        gap: 20px;
         padding-block: 38px 34px;
     }
 
     .hero-group-left,
     .hero-group-right {
         flex: 0 1 auto;
+        min-width: 0;
+        max-width: 100%;
     }
 
     .hero-group-right {
-        min-width: 0;
+        border-top: 1px solid var(--border);
+        border-left: 0;
+        padding: 16px 0 0;
     }
 
     .hero h1 {
-        max-width: 540px;
-        font-size: clamp(2.2rem, 8vw, 2.8rem);
-    }
-
-    .hero-group-right {
-        max-width: 290px;
+        font-size: clamp(2rem, 8vw, 2.8rem);
     }
 
     .base-grid-container,
@@ -53,27 +35,62 @@
     }
 
     .base-grid-container > :first-child,
-    .postlist-grid-container > :first-child {
+    .postlist-grid-container > :first-child,
+    .base-grid-container > aside,
+    .postlist-grid-container > aside,
+    .posts {
         flex: 0 1 auto;
+        min-width: 0;
     }
 
     .base-grid-container > aside,
     .postlist-grid-container > aside {
-        display: flex;
-        flex: 0 1 auto;
-        flex-wrap: wrap;
-        min-width: 0;
-        gap: 22px;
+        display: block;
     }
 
     .base-grid-container > aside .side-box,
     .postlist-grid-container > aside .side-box {
-        flex: 0 0 calc((100% - 22px) / 2);
-        margin: 0;
+        margin-bottom: 22px;
     }
 
-    .posts {
-        flex: 0 1 auto;
+    .publish-container {
+        width: 100%;
+    }
+
+    .page-shell pre,
+    .page-shell table {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .page-shell table {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 18px;
+    }
+
+    .topbar-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-main {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+    }
+
+    .theme-selection {
+        gap: 0.25rem;
     }
 }
 
@@ -83,7 +100,6 @@
     }
 
     .topbar {
-        gap: 12px;
         padding-inline: 15px;
     }
 
@@ -91,20 +107,8 @@
         font-size: 11px;
     }
 
-    .topbar-right {
-        gap: 0;
-    }
-
-    .nav-main {
-        gap: 12px;
-    }
-
     .nav-main a {
         font-size: 11px;
-    }
-
-    .nav-main a:last-child {
-        display: none;
     }
 
     .hero {
@@ -127,13 +131,11 @@
         font-size: 13px;
     }
 
-    .base-grid-container > aside,
-    .postlist-grid-container > aside {
-        flex-direction: column;
+    .publish-container {
+        margin-top: 28px;
     }
 
-    .base-grid-container > aside .side-box,
-    .postlist-grid-container > aside .side-box {
-        flex-basis: 100%;
+    .publish-form {
+        padding: 20px;
     }
 }
