@@ -24,7 +24,7 @@ import { Content, frontmatter } from "../content/about-me.md";
                 <slot />
                 <aside>
                     <section class="side-box infobox">
-                        <InfoBox textContent={frontmatter.description} title="About me" link="/about"/>
+        <InfoBox content={frontmatter.description} title="About me" href="/about" link="Read more..." />
                     </section>
                     <section class="side-box categories">
                         <CategoryList />
