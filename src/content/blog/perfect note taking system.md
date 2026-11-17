@@ -1,6 +1,6 @@
 ---
 title: 'Perfect note taking system'
-description: ''
+description: 'Why the perfect note-taking system matters less than your first try, capture useful information, let the workflow evolve naturally.'
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''

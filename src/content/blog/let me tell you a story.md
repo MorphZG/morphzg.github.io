@@ -1,6 +1,6 @@
 ---
 title: 'Let me tell you a story'
-description: ''
+description: 'Why writing becomes a powerful way to reflect on life, share personal experiences, and connect with others.'
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''

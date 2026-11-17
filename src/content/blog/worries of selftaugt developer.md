@@ -1,6 +1,6 @@
 ---
 title: 'Worries of selftaugt developer'
-description: ''
+description: 'A practical guide for self-taught developers on navigating the career switch.'
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: '/src/assets/thumbnails/impostor_syndrome.webp'
