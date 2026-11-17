@@ -8,8 +8,6 @@
     --accent-strong: #f0c674;
     --border: #343b49;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.45);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .github-dark {
@@ -22,8 +20,6 @@
     --accent-strong: #3fb950;
     --border: #444c56;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.45);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .gruvbox-dark {
@@ -36,8 +32,6 @@
     --accent-strong: #fabd2f;
     --border: #504945;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .tokyo-night {
@@ -50,8 +44,6 @@
     --accent-strong: #bb9af7;
     --border: #414868;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .tokyo-night-frost {
@@ -64,8 +56,6 @@
     --accent-strong: #89ddff;
     --border: #3b4261;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .everforest-dark {
@@ -78,8 +68,6 @@
     --accent-strong: #83c092;
     --border: #4f585e;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .catppuccin-mocha {
@@ -92,8 +80,6 @@
     --accent-strong: #cba6f7;
     --border: #45475a;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .nord {
@@ -106,8 +92,6 @@
     --accent-strong: #8fbcbb;
     --border: #4c566a;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.35);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .midnight-editorial {
@@ -120,8 +104,6 @@
     --accent-strong: #ffd078;
     --border: #293747;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .midnight-blue-contrast {
@@ -134,8 +116,6 @@
     --accent-strong: #60a5fa;
     --border: #1e293b;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.6);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .monokai-pro {
@@ -148,8 +128,6 @@
     --accent-strong: #ff6188;
     --border: #403e41;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .solarized-dark {
@@ -162,8 +140,6 @@
     --accent-strong: #b58900;
     --border: #1f4f5a;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .rose-pine {
@@ -176,8 +152,6 @@
     --accent-strong: #31748f;
     --border: #403d52;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .one-dark-pro {
@@ -190,8 +164,6 @@
     --accent-strong: #98c379;
     --border: #3e4452;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
 
 .dracula {
@@ -204,6 +176,4 @@
     --accent-strong: #ff79c6;
     --border: #44475a;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
-    --mono-space: "Inconsolata", monospace, sans-serif;
-    --serif: "Merriweather", serif;
 }
