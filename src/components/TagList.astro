@@ -39,4 +39,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags ?? []))];
     .tag:hover {
         color: var(--accent);
     }
+    .tag::before {
+        content: "#";
+    }
 </style>
