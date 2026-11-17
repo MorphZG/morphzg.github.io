@@ -1,10 +1,10 @@
 ---
-const { textContent, title, link } = Astro.props;
+const { content, title, href, link } = Astro.props;
 ---
 
 <h3>{title}</h3>
-<p>{textContent}</p>
-<a href={link}>Read more...</a>
+<p>{content}</p>
+<a href={href}>{link}</a>
 
 <style>
     p {
