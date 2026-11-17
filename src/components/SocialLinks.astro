@@ -1,0 +1,84 @@
+<nav class="social-links" aria-label="Social links">
+    <a href="https://dev.to/morphzg" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 4.75h8.5a5.5 5.5 0 0 1 0 11H5z" />
+            <path d="M8.5 8.25v4M8.5 10.25h2M16 8.25v4m0-4h3m-3 2h2.5m-2.5 2h3" />
+        </svg>
+        <span>Dev.to</span>
+    </a>
+    <a href="https://www.github.com/MorphZG" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="m8.5 8-4 4 4 4m7-8 4 4-4 4m-2-9-3 10" />
+        </svg>
+        <span>GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/zorantopic" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 9v10m0-14v.01M10 19v-6a4 4 0 0 1 8 0v6m-8-6v6" />
+        </svg>
+        <span>LinkedIn</span>
+    </a>
+    <a href="/rss.xml" target="_blank">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8" />
+            <circle cx="5" cy="19" r="1" />
+        </svg>
+        <span>RSS feed</span>
+    </a>
+</nav>
+
+<style>
+    .social-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: 0;
+        padding: 10px 11px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--panel);
+        color: var(--muted);
+        font-family: var(--sans);
+        font-size: var(--font-s);
+        transition:
+            border-color 160ms ease,
+            color 160ms ease,
+            background 160ms ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+        border-color: var(--accent);
+        background: var(--panel-soft);
+        color: var(--accent);
+    }
+
+    .social-links svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+    }
+
+    .social-links span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 460px) {
+        .social-links {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+</style>
