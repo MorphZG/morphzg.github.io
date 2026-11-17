@@ -1,6 +1,6 @@
 ---
 title: 'Who am i for real'
-description: 'A personal career journey from bartending to tech. Questions and answers. Doubts  and all that usual quirks.
+description: 'A personal career journey from bartending to tech. Questions and answers. Doubts  and all that usual quirks."
 pubDate: '2026-10-21'
 heroImage: ''
 thumbnail: ''
