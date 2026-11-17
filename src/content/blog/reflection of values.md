@@ -1,6 +1,6 @@
 ---
 title: 'Reflection of values'
-description: ''
+description: 'How much can we give away? Should we trade ou real values for likes, algorithms, and shallow digital validation.'
 pubDate: 'Jul 08 2022'
 heroImage: ''
 thumbnail: ''
