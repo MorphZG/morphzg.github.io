@@ -11,6 +11,7 @@
     --accent-strong: #00d6a0;
     --border: #202b3a;
     --shadow: 0px 8px 24px rgba(0, 0, 0, 0.45);
+    /* tyography */
     --mono-space: "JetBrains Mono", monospace;
     --serif: "Newsreader", serif;
     --sans: "Ubuntu Sans", sans-serif;
