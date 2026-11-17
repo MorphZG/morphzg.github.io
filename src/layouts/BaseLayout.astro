@@ -6,9 +6,8 @@ import HeroSection from "../components/HeroSection.astro";
 import TagList from "../components/TagList.astro";
 import CategoryList from "../components/CategoryList.astro";
 import InfoBox from "../components/InfoBox.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import { Content, frontmatter } from "../content/about-me.md";
-
-
 ---
 
 <html lang="en">
@@ -24,7 +23,7 @@ import { Content, frontmatter } from "../content/about-me.md";
                 <slot />
                 <aside>
                     <section class="side-box infobox">
-        <InfoBox content={frontmatter.description} title="About me" href="/about" link="Read more..." />
+                        <InfoBox content={frontmatter.description} title="About me" href="/about" link="Read more..." />
                     </section>
                     <section class="side-box categories">
                         <CategoryList />
@@ -32,6 +31,9 @@ import { Content, frontmatter } from "../content/about-me.md";
                     <section class="side-box tags">
                         <TagList />
                     </section>
+                    <InfoBox title="Socials" content="If anyone asks for Johnny, tell them to look elswhere. Johnny left the building." >
+                        <SocialLinks />
+                    </InfoBox>
                 </aside>
             </div>
         </main>

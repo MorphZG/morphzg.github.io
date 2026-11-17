@@ -4,7 +4,9 @@ const { content, title, href, link } = Astro.props;
 
 <h3>{title}</h3>
 <p>{content}</p>
-<a href={href}>{link}</a>
+<slot />
+
+{ href && link && <a href={href}>{link}</a> }
 
 <style>
     p {
