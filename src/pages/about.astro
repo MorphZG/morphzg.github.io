@@ -1,5 +1,6 @@
 ---
-import { Content, frontmatter } from "../content/about-me.md";
+import AboutMe from "../content/about-me.md";
+import WhatIDo from "../content/what-i-do.md";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -15,16 +16,24 @@ import HeroSection from "../components/HeroSection.astro";
         <main id="top" class="page-shell">
             <HeroSection eyebrow="welcome" title="Tell me something about yourself" />
 
-            <Content />
+            <AboutMe />
 
             <footer>
                 <h2>Connect with Me</h2>
                 <nav>
                     <ul>
-                        <li><a href="https://dev.to/morphzg">Blog</a></li>
-                        <li><a href="https://www.github.com/MorphZG">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/zorantopic">LinkedIn</a></li>
-                        <li><a href="/download/CV_europass_2027v1.pdf">Check out my CV</a></li>
+                        <li>
+                            <a href="https://dev.to/morphzg">Blog</a>
+                        </li>
+                        <li>
+                            <a href="https://www.github.com/MorphZG">GitHub</a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/zorantopic">LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="/download/CV_europass_2027v1.pdf">Check out my CV</a>
+                        </li>
                     </ul>
                 </nav>
                 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" />
